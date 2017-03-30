@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+
+#include <stdio>
+
+main(){
+std::cout<<"deuxième test 2 " <<std::endl;
+}
