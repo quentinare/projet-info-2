@@ -1,5 +1,5 @@
 #include <stdio>
 
 main () {
-std::cout << "Bonjour Quentin, je suis Diane, je travaille avec toi pour le projet"<< std::endl;
+std::cout << "Bonjour Quentin, je suis Diane, je travaille pour toi pour le projet"<< std::endl;
 }
