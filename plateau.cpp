@@ -14,11 +14,16 @@ Plateau :: ~Plateau ()
 
 void Plateau :: afficherTab()
 {
-    for (int i=0; i<8; i++)
+    bool typea, remplia;
+
+    for (int i=0; i<m_plateau.size(); i++)
     {
-        for (int j=0; j<8; j++)
+        for (int j=0; j<m_plateau.size(); j++)
         {
-            std::cout <<  m_plateau[i][j]<< std::endl;
+
+            typea = m_plateau[i][j].gettype();
+            remplia = m_plateau [i][j].getremplie();
+            std::cout << "" << std::endl;
         }
     }
 }
