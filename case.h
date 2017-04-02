@@ -4,17 +4,17 @@
 class Case
 {
 protected:
-    bool m_type;
+    bool m_couleur;
     bool m_remplie;
 
 public:
     Case();
     ~Case();
 
-    void settype(bool);
+    void setcouleur(bool);
     void setremplie(bool);
 
-    bool gettype()const;
+    bool getcouleur()const;
     bool getremplie()const;
 };
 
