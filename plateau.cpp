@@ -23,7 +23,23 @@ void Plateau :: afficherTab()
 
             typea = m_plateau[i][j].gettype();
             remplia = m_plateau [i][j].getremplie();
-            std::cout << "" << std::endl;
+
+            if(remplia !=0)
+            {
+                if(typea!=0)
+                {
+                    std::cout << "B" << std::endl;
+                }
+                else
+                {
+                    std::cout << "N" << std::endl;
+                }
+            }
+            else
+            {
+            std::cout << "*" << std::endl;
+            }
+
         }
     }
 }
