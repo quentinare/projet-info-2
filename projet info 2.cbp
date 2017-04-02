@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="case.cpp" />
+		<Unit filename="case.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="plateau.cpp" />
+		<Unit filename="plateau.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

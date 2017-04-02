@@ -1,5 +1,6 @@
 #include <iostream>
 #include "plateau.h"
+#include "case.h"
 
 Plateau :: Plateau ()
 {

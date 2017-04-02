@@ -2,6 +2,7 @@
 #define PLATEAU_H_INCLUDED
 #include <iostream>
 #include <vector>
+#include "case.h"
 
 class Plateau
 {
