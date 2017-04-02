@@ -32,12 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Humain.cpp" />
-		<Unit filename="Humain.h" />
 		<Unit filename="case.cpp" />
 		<Unit filename="case.h" />
-		<Unit filename="joueur.cpp" />
-		<Unit filename="joueur.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="plateau.cpp" />
 		<Unit filename="plateau.h" />
