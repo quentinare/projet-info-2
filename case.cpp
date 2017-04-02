@@ -2,8 +2,8 @@
 #include "case.h"
 Case::Case()
 {
-    m_type = -1;
-    m_remplie = -1;
+    m_couleur = 1;
+    m_remplie = 0;
 }
 
 Case::~Case()
@@ -11,21 +11,21 @@ Case::~Case()
 
 }
 
-void Case :: settype(bool type)
+void Case :: setcouleur(bool couleur)
 {
-    m_type = type;
+    m_couleur = couleur;
 }
-void setremplie(bool remplie)
+void Case :: setremplie(bool remplie)
 {
     m_remplie = remplie;
 }
 
-bool Case::gettype()const
+bool Case :: getcouleur()const
 {
-    return m_type;
+    return m_couleur;
 }
 
-bool getremplie()const
+bool Case :: getremplie()const
 {
     return m_remplie;
 }
