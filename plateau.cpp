@@ -12,7 +12,7 @@ Plateau :: ~Plateau ()
 
 }
 
-void Plateau :: afficherTab()
+void afficherTab(std::vector<std::vector<Case> > m_plateau)
 {
     bool typea, remplia;
 
