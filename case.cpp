@@ -15,17 +15,17 @@ void Case :: settype(bool type)
 {
     m_type = type;
 }
-void setremplie(bool remplie)
+void Case :: setremplie(bool remplie)
 {
     m_remplie = remplie;
 }
 
-bool Case::gettype()const
+bool Case :: gettype()const
 {
     return m_type;
 }
 
-bool getremplie()const
+bool Case :: getremplie()const
 {
     return m_remplie;
 }
