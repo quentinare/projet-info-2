@@ -20,7 +20,7 @@ public:
 
     std::vector<Case> possibilite_placement (std::vector<std::vector<Case> > plateau);
     void calcul_encadrement(std::vector<std::vector<Case> > plateau);
-    void afficherTab(std::vector<std::vector<Case> > plateau);
+    void afficherTab(std::vector<std::vector<Case> > m_plateau);
     void savegare_partie();
     void navigation_choix();
 
