@@ -50,7 +50,7 @@ bool Console::isKeyboardPressed()
 
 /*
 0: noir
-1: bleu fonc�
+1: bleu foncé
 2: vert
 3: bleu-gris
 4: marron
@@ -101,3 +101,19 @@ void Console::setColor(Color col)
             this->_setColor(7, 0);
     }
 }
+
+void menu() 
+{
+    int choixMenu=0;
+    
+    do
+    {
+        std::cout << "Bienvenue dans l'OTHELLO!" << std::endl;
+        std::cout << "Veuillez choisir ce que vous souhaitez faire" << std::endl;
+        std::cout << "1. JOUER " << std::endl;
+        std::cout << "2. Lire les régles du jeux" << std::endl;
+        std::cout << "3.Quitter" << std::endl;
+    
+    }while
+    
+    
