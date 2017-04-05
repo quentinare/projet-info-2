@@ -12,13 +12,34 @@ Plateau :: ~Plateau ()
 
 }
 
-void Plateau :: afficherTab()
+void afficherTab(std::vector<std::vector<Case> > m_plateau)
 {
-    for (int i=0; i<8; i++)
+    bool typea, remplia;
+
+    for (int i=0; i<m_plateau.size(); i++)
     {
-        for (int j=0; j<8; j++)
+        for (int j=0; j<m_plateau.size(); j++)
         {
-            std::cout <<  m_plateau[i][j]<< std::endl;
+
+            typea = m_plateau[i][j].gettype();
+            remplia = m_plateau [i][j].getremplie();
+
+            if(remplia !=0)
+            {
+                if(typea!=0)
+                {
+                    std::cout << "B" << std::endl;
+                }
+                else
+                {
+                    std::cout << "N" << std::endl;
+                }
+            }
+            else
+            {
+            std::cout << "*" << std::endl;
+            }
+
         }
     }
 }
@@ -38,7 +59,7 @@ void Plateau :: deplacement()
     bool quit = false;
     Console* pConsole = NULL;
 
-    // Alloue la mémoire du pointeur
+    // Alloue la mÃ©moire du pointeur
     pConsole = Console::getInstance();
 
     // Affichage avec gotoligcol et couleur
@@ -46,13 +67,13 @@ void Plateau :: deplacement()
     pConsole->setColor(COLOR_GREEN);
     pConsole->setColor(COLOR_DEFAULT);
 
-    // Boucle événementielle
+    // Boucle Ã©vÃ©nementielle
     while (!quit)
     {
-        // Si on a appuyé sur une touche du clavier
+        // Si on a appuyÃ© sur une touche du clavier
         if (pConsole->isKeyboardPressed())
         {
-            // Récupère le code ASCII de la touche
+            // RÃ©cupÄre le code ASCII de la touche
             int key = pConsole->getInputKey();
             std::cout << "touche = " << key << std::endl;
 
@@ -64,6 +85,6 @@ void Plateau :: deplacement()
         }
     }
 
-    // Libère la mémoire du pointeur !
+    // LibÄre la mÃ©moire du pointeur !
     Console::deleteInstance();
 }
