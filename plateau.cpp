@@ -81,7 +81,26 @@ void Plateau :: deplacement()
             {
                 quit = true;
             }
-            if (key == e)
+
+            if (key == e)//curseur ves le haut
+            {
+                gotoLigCol(i+1,j);
+            }
+
+            if (key == d)//curseur vers le bas
+            {
+                gotoLigCol(i-1,j);
+            }
+
+            if (key == f)//curseur vers la droite
+            {
+                gotoLigCol(i,j+1);
+            }
+
+            if (key == s)//curseur vers la gauche
+            {
+                gotoLigCol(i,j-1);
+            }
         }
     }
 
