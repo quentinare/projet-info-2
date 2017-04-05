@@ -16,7 +16,7 @@ void Humain :: choix_coup(std::vector<std::vector<Case> > monplateau, std::vecto
 {
     Plateau montableau;
 
-    monplateau = montableau.possibilite_placement(monplateau);
+    std::vector <std::vector<Case> > monplateau = montableau.possibilite_placement(monplateau);
 
     for ( unsigned int i = 0; i<8; i++)
     {
