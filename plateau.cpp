@@ -16,9 +16,9 @@ void afficherTab(std::vector<std::vector<Case> > m_plateau)
 {
     bool typea, remplia;
 
-    for (int i=0; i<m_plateau.size(); i++)
+    for (unsigned int i=0; i<m_plateau.size(); i++)
     {
-        for (int j=0; j<m_plateau.size(); j++)
+        for (unsigned int j=0; j<m_plateau.size(); j++)
         {
 
             typea = m_plateau[i][j].gettype();
