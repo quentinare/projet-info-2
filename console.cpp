@@ -102,10 +102,10 @@ void Console::setColor(Color col)
     }
 }
 
-void menu() 
+void menu()
 {
     int choixMenu=0;
-    
+
     do
     {
         std::cout << "Bienvenue dans l'OTHELLO!" << std::endl;
@@ -113,7 +113,7 @@ void menu()
         std::cout << "1. JOUER " << std::endl;
         std::cout << "2. Lire les régles du jeux" << std::endl;
         std::cout << "3.Quitter" << std::endl;
-    
-    }while
-    
-    
+
+    } while (choixMenu != 1 || choixMenu != 2 || choixMenu != 3);
+
+}
