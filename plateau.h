@@ -23,6 +23,7 @@ public:
     void afficherTab(std::vector<std::vector<Case> > m_plateau);
     void savegare_partie();
     void navigation_choix();
+    void deplacement();
 
 };
 
