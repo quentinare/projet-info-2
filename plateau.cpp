@@ -44,12 +44,13 @@ void afficherTab(std::vector<std::vector<Case> > m_plateau)
     }
 }
 
-void setTab(std::vector<std::vector<Case> > plateau)
+void Plateau :: setTab(std::vector<std::vector<Case> > plateau)
 {
+    std::vector<std::vector<Case> > m_plateau;
     m_plateau = plateau;
 }
 
-std::vector<std::vector<Case> > getTab() const
+std::vector<std::vector<Case> > Plateau ::  getTab() const
 {
     return m_plateau;
 }
