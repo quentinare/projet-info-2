@@ -1,5 +1,8 @@
 #include <iostream>
+#include <vector>
 #include "case.h"
+
+
 Case::Case()
 {
     m_type = -1;
