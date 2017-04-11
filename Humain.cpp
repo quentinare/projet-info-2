@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "Humain.h"
 #include "joueur.h"
 #include "plateau.h"
