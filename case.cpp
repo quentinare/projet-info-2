@@ -14,21 +14,21 @@ Case::~Case()
 
 }
 
-void Case :: settype(bool type)
+void Case::settype(bool type)
 {
     m_type = type;
 }
-void Case :: setremplie(bool remplie)
+void Case::setremplie(bool remplie)
 {
     m_remplie = remplie;
 }
 
-bool Case :: gettype()const
+bool Case::gettype()const
 {
     return m_type;
 }
 
-bool Case :: getremplie()const
+bool Case::getremplie()const
 {
     return m_remplie;
 }

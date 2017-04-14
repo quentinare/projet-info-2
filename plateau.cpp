@@ -1,6 +1,7 @@
 #include <iostream>
 #include "plateau.h"
 #include "case.h"
+#include "console.h"
 
 Plateau :: Plateau ()
 {
@@ -74,7 +75,7 @@ void Plateau :: deplacement()
         // Si on a appuyé sur une touche du clavier
         if (pConsole->isKeyboardPressed())
         {
-            // Récupčre le code ASCII de la touche
+            // Récupere le code ASCII de la touche
             int key = pConsole->getInputKey();
             std::cout << "touche = " << key << std::endl;
 
@@ -83,22 +84,22 @@ void Plateau :: deplacement()
                 quit = true;
             }
 
-            if (key == e)//curseur ves le haut
+            if (key == 'e')//curseur ves le haut
             {
                 gotoLigCol(i+1,j);
             }
 
-            if (key == d)//curseur vers le bas
+            if (key == 'd')//curseur vers le bas
             {
                 gotoLigCol(i-1,j);
             }
 
-            if (key == f)//curseur vers la droite
+            if (key == 'f')//curseur vers la droite
             {
                 gotoLigCol(i,j+1);
             }
 
-            if (key == s)//curseur vers la gauche
+            if (key == 's')//curseur vers la gauche
             {
                 gotoLigCol(i,j-1);
             }

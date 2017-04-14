@@ -9,7 +9,7 @@ public:
     Humain();
     ~Humain();
 
-    void choix_coup(std::vector<std::vector<Case> > monplateau, std::vector<Case> stockagecas);
+    void choix_coup(std::vector<std::vector<Case> > monplateau, std::vector<std::vector<Case> > stockagecas);
     void affichage_coup(std::vector<std::vector<Case> > monplateau);
 
 };

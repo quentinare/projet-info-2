@@ -36,6 +36,8 @@
 		<Unit filename="Humain.h" />
 		<Unit filename="case.cpp" />
 		<Unit filename="case.h" />
+		<Unit filename="console.cpp" />
+		<Unit filename="console.h" />
 		<Unit filename="joueur.cpp" />
 		<Unit filename="joueur.h" />
 		<Unit filename="main.cpp" />
