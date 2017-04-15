@@ -21,6 +21,7 @@ void menu()
    {
        int choixMenu;
        int n = 0;
+       Plateau Mygame;
 
        while(n=0)
        {
@@ -41,6 +42,7 @@ void menu()
            switch (choixMenu)
            {
                case 1:
+                   Mygame.afficherTab();
                    break;
                case 2:
                    break;
