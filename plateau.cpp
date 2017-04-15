@@ -60,12 +60,14 @@ void Plateau :: deplacement()
 {
     bool quit = false;
     Console* pConsole = NULL;
+    int i=0;
+    int j=0;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
 
     // Affichage avec gotoligcol et couleur
-    pConsole->gotoLigCol(5, 10);
+    pConsole->gotoLigCol(i, j);
     pConsole->setColor(COLOR_GREEN);
     pConsole->setColor(COLOR_DEFAULT);
 
@@ -86,22 +88,22 @@ void Plateau :: deplacement()
 
             if (key == 'e')//curseur ves le haut
             {
-                gotoLigCol(i+1,j);
+                pConsole->gotoLigCol(i+1,j);
             }
 
             if (key == 'd')//curseur vers le bas
             {
-                gotoLigCol(i-1,j);
+                pConsole->gotoLigCol(i-1,j);
             }
 
             if (key == 'f')//curseur vers la droite
             {
-                gotoLigCol(i,j+1);
+                pConsole->gotoLigCol(i,j+1);
             }
 
             if (key == 's')//curseur vers la gauche
             {
-                gotoLigCol(i,j-1);
+                pConsole->gotoLigCol(i,j-1);
             }
         }
     }
