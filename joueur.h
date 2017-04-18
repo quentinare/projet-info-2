@@ -18,6 +18,8 @@ public:
 
     std::string getnom() const;
     int getscore () const;
+    
+    void jeu();// fonction qui permet d'alterner les joueur jusqu'à la fin du jeu
 };
 
 
