@@ -8,6 +8,8 @@ class Joueur
 protected:
     std::string m_nom;
     int m_score;
+    int m_numero;
+    
 public:
 
     Joueur();
