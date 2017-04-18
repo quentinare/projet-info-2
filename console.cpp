@@ -167,5 +167,5 @@ void jeu()
        
         }//fin du while do
        
-    } // fin du do
+    } while (la touche de fin n'est pas appuiée) // fin du do
    */
