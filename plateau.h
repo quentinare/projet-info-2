@@ -24,6 +24,8 @@ public:
     void savegare_partie();
     void navigation_choix();
     void deplacement();
+    void jeu ();
+    bool casevide ();
 
 };
 

@@ -112,19 +112,20 @@ void Plateau :: deplacement()
     Console::deleteInstance();
 }
 
-/* fonction de jeu
-void jeu()
+// fonction de jeu
+void Plateau :: jeu ()
 {
-    do
+    /*do
     {
     fonction tester s'il y a une case vide et que l'on peut jouer
-        
-        while( il y a une case vide)
-        { 
-        
+
+        while( il y a une case vide OU que l'on peut jouer)
+        {
+
         fonction tester s'il y a une case vide
+
         // fonction Tour (int) que l'on appelle 2 fois
-        
+
             While (getJnumero==0) // (c'est le tour du joueur 1)
             do {
             parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
@@ -132,35 +133,78 @@ void jeu()
             fonction de déplacement
                 If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
                 {
-                setJnumero==1;
+                setJnumero=1;
                 }
                 Else
                 {
                 "vous avez sélectionné une mauvaise case"
                 }
             }//fin du vhile do
-            
-        fonction tester s'il y a une case vide
-        
+
+        fonction tester s'il y a une case vide OU si l'on peut jouer
+
             While (getJnumero==1) // (c'est le tour du joueur 2)
-            do 
+            do
             {
             parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
             afficher le tableu + proposition de placement + "A vous de jouer J2"
             fonction de déplacement
                 If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
                 {
-                setJnumero==0;
+                setJnumero=0;
                 }
                 Else
                 {
                 "vous avez sélectionné une mauvaise case"
                 }
             }//fin du while do
-            
+
         fonction tester s'il y a une case vide
-       
+
         }//fin du while do
-       
-    } while (la touche de fin n'est pas appuiée) // fin du do
+
+    } while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
+
+   fction affichage du vainqueur
    */
+
+}//fin de la fct de jeu
+
+//fonction case vide
+bool Plateau :: casevide ()
+
+{
+    bool vide = 1;
+    bool remplissage = 0;
+
+    do
+    {
+     for (int i; i=< m_plateau.size(); i++)
+     {
+         for (int j; i=< m_plateau[i].size(); j++)
+         {
+             remplissage = case.getremplie ();
+
+             if (remplissage==0)
+             {
+                vide = 0;
+                break;// sortir de la boucle for
+             }
+             else (remplissage == 1)
+             {
+                vide = 1;
+             }
+
+         }
+
+         if (remplissage==0) //test pour sortir de la boucle for
+             {
+                break;
+             }
+     }
+
+    }while (vide!=0)
+
+}
+
+

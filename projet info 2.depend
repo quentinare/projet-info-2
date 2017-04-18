@@ -50,3 +50,43 @@
 	"joueur.h"
 	"console.h"
 
+1492421833 source:c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\case.cpp
+	<iostream>
+	<vector>
+	"case.h"
+
+1491411394 c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\case.h
+
+1492421833 source:c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\humain.cpp
+	<iostream>
+	<vector>
+	"Humain.h"
+	"joueur.h"
+	"plateau.h"
+	"case.h"
+
+1492421833 c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\humain.h
+	"joueur.h"
+	"case.h"
+
+1492525533 c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\joueur.h
+	<iostream>
+	<string>
+
+1492421833 c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\plateau.h
+	<iostream>
+	<vector>
+	"case.h"
+
+1492421833 source:c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"plateau.h"
+	"case.h"
+	"joueur.h"
+	"console.h"
+
+1491411394 c:\users\diane dumont\desktop\ece 2a\info 4\projet\projet-info-2\console.h
+	<iostream>
+
