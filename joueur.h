@@ -17,9 +17,12 @@ public:
 
     void setnom(std::string);
     void setscore (int);
+    void setnumero (int);
 
     std::string getnom() const;
     int getscore () const;
+    int getnumero () const;
+    
     
     void jeu();// fonction qui permet d'alterner les joueur jusqu'à la fin du jeu
 };
