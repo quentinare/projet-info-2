@@ -111,3 +111,56 @@ void Plateau :: deplacement()
     // Libčre la mémoire du pointeur !
     Console::deleteInstance();
 }
+
+/* fonction de jeu
+void jeu()
+{
+    do
+    {
+    fonction tester s'il y a une case vide et que l'on peut jouer
+        
+        while( il y a une case vide)
+        { 
+        
+        fonction tester s'il y a une case vide
+        // fonction Tour (int) que l'on appelle 2 fois
+        
+            While (getJnumero==0) // (c'est le tour du joueur 1)
+            do {
+            parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
+            afficher le tableu + proposition de placement + "A vous de jouer J1"
+            fonction de déplacement
+                If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
+                {
+                setJnumero==1;
+                }
+                Else
+                {
+                "vous avez sélectionné une mauvaise case"
+                }
+            }//fin du vhile do
+            
+        fonction tester s'il y a une case vide
+        
+            While (getJnumero==1) // (c'est le tour du joueur 2)
+            do 
+            {
+            parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
+            afficher le tableu + proposition de placement + "A vous de jouer J2"
+            fonction de déplacement
+                If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
+                {
+                setJnumero==0;
+                }
+                Else
+                {
+                "vous avez sélectionné une mauvaise case"
+                }
+            }//fin du while do
+            
+        fonction tester s'il y a une case vide
+       
+        }//fin du while do
+       
+    } while (la touche de fin n'est pas appuiée) // fin du do
+   */
