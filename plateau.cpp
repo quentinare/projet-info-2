@@ -38,7 +38,7 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > m_plateau)
             }
             else
             {
-            std::cout << "*" << std::endl;
+                std::cout << "*" << std::endl;
             }
 
         }
@@ -115,11 +115,11 @@ void Plateau :: deplacement()
 // fonction de jeu
 void Plateau :: jeu ()
 {
-    /*do
+    do
     {
-    fonction tester s'il y a une case vide et que l'on peut jouer
+        casevide(); //fonction tester s'il y a une case vide ET que l'on peut jouer
 
-        while( il y a une case vide OU que l'on peut jouer)
+        /*while( il y a une case vide OU que l'on peut jouer)
         {
 
         fonction tester s'il y a une case vide
@@ -163,48 +163,51 @@ void Plateau :: jeu ()
 
         }//fin du while do
 
-    } while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
+        }
+        fction affichage du vainqueur
+        */
+    }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
 
-   fction affichage du vainqueur
-   */
+
+
 
 }//fin de la fct de jeu
 
+
+
+
 //fonction case vide
 bool Plateau :: casevide ()
-
 {
     bool vide = 1;
     bool remplissage = 0;
 
-    do
+    for (int i; i=< m_plateau.size(); i++)
     {
-     for (int i; i=< m_plateau.size(); i++)
-     {
-         for (int j; i=< m_plateau[i].size(); j++)
-         {
-             remplissage = case.getremplie ();
+        for (int j; i=< m_plateau[i].size(); j++)
+        {
+            remplissage = case.getremplie ();
 
-             if (remplissage==0)
-             {
+            if (remplissage==0)
+            {
                 vide = 0;
                 break;// sortir de la boucle for
-             }
-             else (remplissage == 1)
-             {
+            }
+            else (remplissage == 1)
+            {
                 vide = 1;
-             }
+            }
 
-         }
+        }
 
-         if (remplissage==0) //test pour sortir de la boucle for
-             {
-                break;
-             }
-     }
+        if (remplissage==0) //test pour sortir de la boucle for
+        {
+            break;
+        }
+    }
 
-    }while (vide!=0)
 
+    return vide;
 }
 
 
