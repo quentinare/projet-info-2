@@ -176,6 +176,64 @@ void Plateau :: jeu ()
 
 }//fin de la fct de jeu
 
+// fonction de jeu
+void Plateau :: jeu ()
+{
+    do
+    {
+        bool vide=casevide(); //fonction tester s'il y a une case vide 
+        //ET que l'on peut jouer
+
+        /*while( il y a une case vide OU que l'on peut jouer)
+        {
+
+        fonction tester s'il y a une case vide
+
+        // fonction Tour (int) que l'on appelle 2 fois (1/2)
+            While (getJnumero==0) // (c'est le tour du joueur 1)
+            do {
+            parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
+            afficher le tableu + proposition de placement + "A vous de jouer J1"
+            fonction de déplacement
+                If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
+                {
+                setJnumero=1;
+                }
+                Else
+                {
+                "vous avez sélectionné une mauvaise case"
+                }
+            }//fin du vhile do
+
+        fonction tester s'il y a une case vide OU si l'on peut jouer
+        
+        // fonction Tour (int) que l'on appelle 2 fois (2/2) 
+            While (getJnumero==1) // (c'est le tour du joueur 2)
+            {
+            parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
+            afficher le tableu + proposition de placement + "A vous de jouer J2"
+            fonction de déplacement
+                If( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
+                {
+                setJnumero=0;
+                }
+                Else
+                {
+                "vous avez sélectionné une mauvaise case"
+                }
+            }//fin du while do
+
+        fonction tester s'il y a une case vide
+
+        }//fin du while do
+
+        }
+        fction affichage du vainqueur
+        */
+    }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
+
+}//fin de la fct de jeu
+
 //fonction case vide
 bool Plateau :: casevide ()
 {
