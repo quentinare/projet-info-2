@@ -39,7 +39,7 @@ void menu()
                std::cin >> choixMenu;
            }
 
-           switch (choixMenu)
+           /*switch (choixMenu)
            {
                case 1:
                    Mygame.afficherTab();
@@ -49,5 +49,6 @@ void menu()
                case 3:
                    break;
            }
+           */
         }
    }

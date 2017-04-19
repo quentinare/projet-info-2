@@ -4,13 +4,13 @@
 #include <vector>
 #include <set>
 #include "case.h"
+#include "joueur.h"
 
 class Plateau
 {
 private:
     std::vector<std::vector<Case> > m_plateau;
     std::vector<Case> m_stockage_cas;
-    std::vector<int> m_scores;
 
 public:
     Plateau();
@@ -24,12 +24,13 @@ public:
     void afficherTab(std::vector<std::vector<Case> > m_plateau);
     void savegare_partie();
     void navigation_choix();
-    void deplacement();
+    void deplacement(int,int);
     void jeu ();
     bool casevide ();
     std::set < std::pair <int,int> > coups_possibles ();
     void vainqueur();
     bool play();
+    void tour(std::vector<std::vector<Case> >, Joueur)
 
 };
 

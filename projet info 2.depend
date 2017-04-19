@@ -6,7 +6,7 @@
 
 1492183519 c:\users\asus\documents\code blocks\projet info 2\projet-info-2\case.h
 
-1491998004 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\console.cpp
+1492537348 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\console.cpp
 	"console.h"
 	<conio.h>
 	<windows.h>
@@ -26,22 +26,23 @@
 	"joueur.h"
 	"case.h"
 
-1491998004 c:\users\asus\documents\code blocks\projet info 2\projet-info-2\joueur.h
+1492621690 c:\users\asus\documents\code blocks\projet info 2\projet-info-2\joueur.h
 	<iostream>
 	<string>
 
-1491998004 c:\users\asus\documents\code blocks\projet info 2\projet-info-2\plateau.h
+1492625266 c:\users\asus\documents\code blocks\projet info 2\projet-info-2\plateau.h
 	<iostream>
 	<vector>
+	<set>
 	"case.h"
 
-1492184277 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\joueur.cpp
+1492621690 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\joueur.cpp
 	<iostream>
 	<string>
 	<vector>
 	"joueur.h"
 
-1492184827 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\main.cpp
+1492625211 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\main.cpp
 	<iostream>
 	<string>
 	<vector>

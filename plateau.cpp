@@ -5,6 +5,7 @@
 #include "plateau.h"
 #include "case.h"
 #include "console.h"
+#include "joueur.h"
 
 Plateau :: Plateau ()
 {
@@ -59,12 +60,10 @@ std::vector<std::vector<Case> > Plateau ::  getTab() const
     return m_plateau;
 }
 
-void Plateau :: deplacement(i=0,j=0)
+void Plateau :: deplacement(int i=0, int j=0)
 {
     bool quit = false;
     Console* pConsole = NULL;
-    int i=0;
-    int j=0;
 
     // Alloue la mémoire du pointeur
     pConsole = Console::getInstance();
@@ -118,39 +117,46 @@ void Plateau :: deplacement(i=0,j=0)
 // fonction de jeu
 void Plateau :: jeu ()
 {
-    do {
-        casevide(); //fonction tester s'il y a une case vide ET que l'on peut jouer
 
-        do {
+    Joueur monjoueur1;
+    Joueur monjoueur2;
 
-        casevide();
-        //fonction tester s'il y a une case vide
+    monjoueur1.setnumero(false);
+    monjoueur2.setnumero(false);
 
-        // fonction Tour (int) que l'on appelle 2 fois
+    while (casevide()==true)
+        {
 
+            while (monjoueur1.getnumero()==false && monjoueur2.getnumero()==false)
+                {
 
-            do {
+                    tour(m_plateau, monjoueur1)
+
             //parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
-            //afficher le tableu + proposition de placement + "A vous de jouer J1"
+            //afficher le tableau + proposition de placement + "A vous de jouer J1"
             //fonction de déplacement
+
                 if(kbhit == ' ')
                 {
-                setnumero=1;
+                    monjoueur1.setnumero(true);
+                    monjoueur2.setnumero(true);
                 }
+
                 else
                 {
                 std::cout << "vous avez sélectionné une mauvaise case" << std::endl;
                 }
-            }While (getnumero==0) // c'est le tour du joueur 1
+            } // c'est le tour du joueur 1
 
-        //fonction tester s'il y a une case vide OU si l'on peut jouer
-        if(casevide() && play()==true)
+        //fonction tester s'il y a une case vide OU si l'on peut joue
 
-            do{
+            while (monjoueur1.getnumero()==true && monjoueur2.getnumero()==true)
+                {
             //parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
             //afficher le tableu + proposition de placement + "A vous de jouer J2"
             //fonction de déplacement
                 //if( joueur appuie sur espace pour placet le pion && le curseur est sur une des cases contenue dans le tableau de proposition)
+
                 if(kbhit == ' ')
                 {
                 setnumero=0;
@@ -159,18 +165,13 @@ void Plateau :: jeu ()
                 {
                 std::cout << "vous avez sélectionné une mauvaise case"<< std::endl;
                 }
-            }While (getnumero==1) // (c'est le tour du joueur 2) //fin du do while
+            } // (c'est le tour du joueur 2) //fin du do while
 
-        //fonction tester s'il y a une case vide
-        casevide();
-
-        }while(casevide() ||  play()==true) //fin du do while
-
-        }
         //fction affichage du vainqueur
-        vainqueur();
 
-    }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
+        vainqueur(monjoueur1.getscore(), monjoueur2.getscore());
+
+    }
 
 
 }//fin de la fct de jeu
@@ -178,37 +179,27 @@ void Plateau :: jeu ()
 //fonction case vide
 bool Plateau :: casevide ()
 {
-    bool vide = 1;
-    bool remplissage = 0;
+    bool remplissage = false;
+        Case casetest;
 
     for (int i=0; i< m_plateau.size(); i++)
     {
         for (int j=0; i< m_plateau[i].size(); j++)
         {
-            remplissage = case.getremplie ();
+            casetest = m_plateau[i][j];
+            remplissage = casetest.getremplie ();
 
-            if (remplissage==0)
+            if (remplissage==false)
             {
-                vide = 0;
-                break;// sortir de la boucle for
+                return true;
             }
-            else (remplissage == 1)
+            else (remplissage == true)
             {
-                vide = 1;
+                return false;
             }
-
-        }
-
-        if (remplissage==0) //test pour sortir de la boucle for
-        {
-            break;
         }
     }
-
-
-    return vide;
 }
-
 
 //fonction pour trouver les cas possible
 std::set < std::pair <int,int> > Plateau :: coups_possibles ()
@@ -244,9 +235,10 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles ()
 
 }//fin de la fonction
 
-void Plateau :: vainqueur()
+void Plateau :: vainqueur(int score1, int score2)
 {
-    if (score -> J1 > score -> J2)
+
+    if (score1 > score2)
     {
         std::cout << "le joueur 1 a gagne" << std::endl;
     }
@@ -256,18 +248,5 @@ void Plateau :: vainqueur()
     }
 }
 
-bool Plateau :: play()
-{
-    for (int i=0; i<8; i++)
-    {
-        for(int j=0; j<8; j++)
-        {
-            if(m_plateau[i][j]==false)
-            {
-                return true;
-                break;
-            }
-        }
-    }
-    return false;
-}
+
+
