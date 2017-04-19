@@ -181,7 +181,7 @@ void Plateau :: jeu ()
 {
     do
     {
-        bool vide=casevide(); //fonction tester s'il y a une case vide 
+        bool vide=casevide(); //fonction tester s'il y a une case vide
         //ET que l'on peut jouer
 
         /*while( il y a une case vide OU que l'on peut jouer)
@@ -206,8 +206,8 @@ void Plateau :: jeu ()
             }//fin du vhile do
 
         fonction tester s'il y a une case vide OU si l'on peut jouer
-        
-        // fonction Tour (int) que l'on appelle 2 fois (2/2) 
+
+        // fonction Tour (int) que l'on appelle 2 fois (2/2)
             While (getJnumero==1) // (c'est le tour du joueur 2)
             {
             parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
@@ -264,26 +264,176 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles ()
 {
     bool couleurtour=Joueur.getnumero();
     bool couleurcase=Case.gettype();
+    int x,y;
 
-    for (int i=0; i< m_plateau.size(); i++)
+    for (int i=0; i<= m_plateau.size(); i++)
     {
-        for (int j=0; i< m_plateau[i].size(); j++)
+        x=j;
+        for (int j=0; i<= m_plateau[i].size(); j++)
         {
+            y=i
             if(couleurtour==couleurcase)
             {
-                for(int a=0; i<8; i++)
+                for(int a=0; a<8; a++)
                 {
                     switch (a)
                     {
-                    case 1: //aller à droite
-                        if(couleurcase==couleurtour)
+                    case 1: //Droite
+                        m_plateau[x][y+1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                    }
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x][y+1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
 
-                }
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 2: //Gauche
+                        m_plateau[x][y-1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x][y-1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 3: //Haut
+                        m_plateau[x+1][y];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x+1][y];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 4: //Bas
+                        m_plateau[x-1][y];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x-1][y];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur + besoin d'un setter?
+                        }
+
+                    case 5: //Haut Droit
+                        m_plateau[x+1][y+1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x+1][y+1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 6: //Haut Gauche
+                        m_plateau[x+1][y-1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x+1][y-1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 7: //Bas Droit
+                        m_plateau[x-1][y+1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x-1][y+1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+                    case 8: //Bas Gauche
+                        m_plateau[x-1][y-1];
+                        bool couleurcase=Case.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                            m_plateau[x-1][y-1];
+                            bool couleurcase=Case.gettype();
+                            }while(couleurcase!=couleurtour)
+
+                            m_stockage_cas.insert(<x,y>);//pas sure de l'insertion dans le conteneur
+                        }
+
+
+                    } //fin du switch
+
+                }//fin de la boucle for
             }
 
 

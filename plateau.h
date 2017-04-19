@@ -10,7 +10,7 @@ class Plateau
 {
 private:
     std::vector<std::vector<Case> > m_plateau;
-    std::vector<Case> m_stockage_cas;
+    std::set < std::pair <int,int> > m_stockage_cas;
 
 public:
     Plateau();
@@ -18,9 +18,10 @@ public:
 
     void setTab(std::vector<std::vector<Case> > plateau);
     std::vector<std::vector<Case> > getTab() const;
+    std::set < std::pair <int,int> > getstockage_cas ();
 
-    std::vector<std::vector<Case> > possibilite_placement (std::vector<std::vector<Case> > plateau);
-    void calcul_encadrement(std::vector<std::vector<Case> > plateau);
+    //std::vector<std::vector<Case> > possibilite_placement (std::vector<std::vector<Case> > plateau);
+    void calcul_encadrement(std::vector<std::vector<Case> > m_plateau);
     void afficherTab(std::vector<std::vector<Case> > m_plateau);
     void savegare_partie();
     void navigation_choix();
@@ -30,7 +31,7 @@ public:
     std::set < std::pair <int,int> > coups_possibles ();
     void vainqueur();
     bool play();
-    void tour(std::vector<std::vector<Case> >, Joueur)
+    void tour(std::vector<std::vector<Case> >, Joueur);
 
 };
 

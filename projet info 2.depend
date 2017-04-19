@@ -103,3 +103,56 @@
 	<vector>
 	"joueur.h"
 
+1492636069 source:c:\users\diane dumont\desktop\projet-info-2\case.cpp
+	<iostream>
+	<vector>
+	"case.h"
+
+1492636069 c:\users\diane dumont\desktop\projet-info-2\case.h
+
+1492636069 source:c:\users\diane dumont\desktop\projet-info-2\console.cpp
+	"console.h"
+	<conio.h>
+	<windows.h>
+
+1492636069 c:\users\diane dumont\desktop\projet-info-2\console.h
+	<iostream>
+
+1492636069 source:c:\users\diane dumont\desktop\projet-info-2\humain.cpp
+	<iostream>
+	<vector>
+	"Humain.h"
+	"joueur.h"
+	"plateau.h"
+	"case.h"
+
+1492636069 c:\users\diane dumont\desktop\projet-info-2\humain.h
+	"joueur.h"
+	"case.h"
+
+1492636069 c:\users\diane dumont\desktop\projet-info-2\joueur.h
+	<iostream>
+	<string>
+
+1492642235 c:\users\diane dumont\desktop\projet-info-2\plateau.h
+	<iostream>
+	<vector>
+	<set>
+	"case.h"
+	"joueur.h"
+
+1492636069 source:c:\users\diane dumont\desktop\projet-info-2\joueur.cpp
+	<iostream>
+	<string>
+	<vector>
+	"joueur.h"
+
+1492636069 source:c:\users\diane dumont\desktop\projet-info-2\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"plateau.h"
+	"case.h"
+	"joueur.h"
+	"console.h"
+
