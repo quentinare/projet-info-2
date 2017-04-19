@@ -8,8 +8,8 @@ class Joueur
 protected:
     std::string m_nom;
     int m_score;
-    int m_numero;
-    
+    bool m_numero;
+
 public:
 
     Joueur();
@@ -17,13 +17,13 @@ public:
 
     void setnom(std::string);
     void setscore (int);
-    void setnumero (int);
+    void setnumero (bool);
 
     std::string getnom() const;
     int getscore () const;
-    int getnumero () const;
-    
-    
+    bool getnumero () const;
+
+
     void jeu();// fonction qui permet d'alterner les joueur jusqu'à la fin du jeu
 };
 

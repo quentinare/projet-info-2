@@ -1,4 +1,6 @@
 #include <iostream>
+#include <set>
+#include <vector>
 #include "plateau.h"
 #include "case.h"
 #include "console.h"
@@ -211,3 +213,18 @@ bool Plateau :: casevide ()
 }
 
 
+//fonction pour trouver les cas possible
+std::set < std::pair <int,int> > Plateau :: coups_possibles ()
+{
+    bool couleurtour=Joueur.getnumero();
+    for (int i; i=< m_plateau.size(); i++)
+    {
+        for (int j; i=< m_plateau[i].size(); j++)
+        {
+
+
+        }//fin du parcours du tableau 1D
+
+    }//fin du parcours du tableau 2D
+
+}//fin de la fonction

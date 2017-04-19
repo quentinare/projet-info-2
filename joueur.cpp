@@ -13,7 +13,7 @@ Joueur::~Joueur()
 
 }
 
-void Joueur::setnumero (int numero)
+void Joueur::setnumero (bool numero)
 {
     m_numero = numero;
 }
@@ -37,7 +37,7 @@ int Joueur::getscore () const
     return m_score;
 }
 
-int Joueur::getnumero () const
+bool Joueur::getnumero () const
 {
     return m_numero;
 }

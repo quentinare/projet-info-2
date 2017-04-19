@@ -2,6 +2,7 @@
 #define PLATEAU_H_INCLUDED
 #include <iostream>
 #include <vector>
+#include <set>
 #include "case.h"
 
 class Plateau
@@ -26,6 +27,7 @@ public:
     void deplacement();
     void jeu ();
     bool casevide ();
+    std::set < std::pair <int,int> > coups_possibles ();
 
 };
 
