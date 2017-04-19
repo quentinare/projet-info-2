@@ -28,6 +28,8 @@ public:
     void jeu ();
     bool casevide ();
     std::set < std::pair <int,int> > coups_possibles ();
+    void vainqueur();
+    bool play();
 
 };
 
