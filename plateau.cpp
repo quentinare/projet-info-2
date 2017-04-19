@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <pair>
 #include <vector>
 #include "plateau.h"
 #include "case.h"
@@ -175,18 +176,15 @@ void Plateau :: jeu ()
 
 }//fin de la fct de jeu
 
-
-
-
 //fonction case vide
 bool Plateau :: casevide ()
 {
     bool vide = 1;
     bool remplissage = 0;
 
-    for (int i; i=< m_plateau.size(); i++)
+    for (int i=0; i< m_plateau.size(); i++)
     {
-        for (int j; i=< m_plateau[i].size(); j++)
+        for (int j=0; i< m_plateau[i].size(); j++)
         {
             remplissage = case.getremplie ();
 
@@ -217,10 +215,28 @@ bool Plateau :: casevide ()
 std::set < std::pair <int,int> > Plateau :: coups_possibles ()
 {
     bool couleurtour=Joueur.getnumero();
-    for (int i; i=< m_plateau.size(); i++)
+    bool couleurcase=Case.gettype();
+
+    for (int i=0; i< m_plateau.size(); i++)
     {
-        for (int j; i=< m_plateau[i].size(); j++)
+        for (int j=0; i< m_plateau[i].size(); j++)
         {
+            if(couleurtour==couleurcase)
+            {
+                for(int a=0; i<8; i++)
+                {
+                    switch (a)
+                    {
+                    case 1: //aller à droite
+                        if(couleurcase==couleurtour)
+                        {
+                            break;
+                        }
+
+                    }
+
+                }
+            }
 
 
         }//fin du parcours du tableau 1D
@@ -228,3 +244,5 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles ()
     }//fin du parcours du tableau 2D
 
 }//fin de la fonction
+
+
