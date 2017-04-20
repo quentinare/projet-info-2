@@ -9,6 +9,7 @@ protected:
     std::string m_nom;
     int m_score;
     bool m_numero;
+    bool m_tour;
 
 public:
 
@@ -18,9 +19,11 @@ public:
     void setnom(std::string);
     void setscore (int);
     void setnumero (bool);
+    void settour (bool);
 
     std::string getnom() const;
     int getscore () const;
+    bool getnumero () const;
     bool getnumero () const;
 
 
