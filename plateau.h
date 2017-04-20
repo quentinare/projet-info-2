@@ -28,7 +28,7 @@ public:
     void deplacement(int,int);
     void jeu ();
     bool casevide ();
-    std::set < std::pair <int,int> > coups_possibles ();
+    std::set < std::pair <int,int> > coups_possibles (Joueur monjoueur);
     void vainqueur();
     bool play();
     void tour(std::vector<std::vector<Case> >, Joueur);
