@@ -32,6 +32,7 @@ public:
     void vainqueur();
     bool play();
     void tour(std::vector<std::vector<Case> >, Joueur);
+    void changement_couleur();
 
 };
 
