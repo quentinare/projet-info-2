@@ -493,6 +493,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
     bool couleurcase;
     Case c;
     int x,y;
+    int compteur = 0; 
 
     couleurtour = monjoueur.getnumero();
 
@@ -505,7 +506,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                     case 1: //Droite
                         c = m_plateau[x][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y ) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -515,9 +516,19 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                             do
                             {
                                 c = m_plateau[x][y+1];
-                                couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x][y-1];
+                                        c.settype(couleurtour);
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            y = y +1;
                             break;
                         }
 
@@ -533,11 +544,20 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x][y-1];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x][y+1];
+                                        c.settype(couleurtour);
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            y = y-1;
                             break;
                         }
 
@@ -553,11 +573,20 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x+1][y];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x+1][y];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x+1; 
                             break;
                         }
 
@@ -573,11 +602,20 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x-1][y];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x-1;
                             break;
                         }
 
@@ -593,11 +631,22 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x+1][y+1];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x+1][y+1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y-1];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x+1;
+                            y = y+1;
                             break;
                         }
 
@@ -611,13 +660,24 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 
                         if(couleurcase!=couleurtour)
                         {
-                            while(couleurcase!=couleurtour || c.getremplie()!=true)
+                            do
                             {
-                            c = m_plateau[x+1][y-1];
-                            couleurcase=c.gettype();
-                            }
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x+1][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y+1];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x+1;
+                            y = y-1;
                             break;
                         }
 
@@ -633,11 +693,22 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y+1];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x-1][y+1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y-1];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x-1;
+                            y = y+1;
                             break;
                         }
 
@@ -653,11 +724,22 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y-1];
-                            couleurcase=c.gettype();
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
-
-                            m_stockage_cas.insert(std::pair(x,y));
+                                c = m_plateau[x-1][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y+1];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+                                
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
+                            x = x-1;
+                            y = y-1;
                             break;
                         }
 
@@ -669,9 +751,6 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 
 
         }//fin du parcours du tableau 1D
-
-    }//fin du parcours du tableau 2D
-}
 
 void Plateau :: vainqueur(int score1, int score2)
 {
