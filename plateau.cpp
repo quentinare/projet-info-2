@@ -261,12 +261,14 @@ bool Plateau :: casevide ()
 
 //fonction pour trouver les cas possible
 //fonction pour trouver les cas possible
-std::set < std::pair <int,int> > Plateau :: coups_possibles ()
+std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 {
     bool couleurtour;
     bool couleurcase;
     Case c;
     int x,y;
+
+    couleurtour = monjoueur.getnumero();
 
     for (int i=0; i< m_plateau.size(); i++)
     {
