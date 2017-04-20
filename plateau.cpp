@@ -121,7 +121,8 @@ void Plateau :: jeu ()
     Joueur monjoueur2;
 
     monjoueur1.setnumero(false);
-    monjoueur2.setnumero(false);
+    monjoueur2.setnumero(true);
+    
 
     while (casevide()==true)
         {
@@ -284,17 +285,20 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 1: //Droite
                         c = m_plateau[x][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
                                 c = m_plateau[x][y+1];
                                 couleurcase=c.gettype();
+                                y=y+1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -304,17 +308,20 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 2: //Gauche
                         c = m_plateau[x][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x][y-1];
-                            couleurcase=c.gettype();
+                                c = m_plateau[x][y-1];
+                                couleurcase=c.gettype();
+                                y=y-1
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -324,17 +331,20 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 3: //Haut
                         c = m_plateau[x+1][y];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x+1][y];
-                            couleurcase=c.gettype();
+                                c = m_plateau[x+1][y];
+                                couleurcase=c.gettype();
+                                x=x+1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -344,17 +354,20 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 4: //Bas
                         c = m_plateau[x-1][y];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y];
-                            couleurcase=c.gettype();
+                                c = m_plateau[x-1][y];
+                                couleurcase=c.gettype();
+                                x=x-1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -364,17 +377,22 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 5: //Haut Droit
                         c = m_plateau[x+1][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                        
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x+1][y+1];
-                            couleurcase=c.gettype();
+                                c = m_plateau[x+1][y+1];
+                                couleurcase=c.gettype();
+                                x=x+1;
+                                y=y+1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -384,18 +402,24 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 6: //Haut Gauche
                         c = m_plateau[x+1][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
-                            while(couleurcase!=couleurtour || c.getremplie()!=true)
+                            
+                            do
                             {
-                            c = m_plateau[x+1][y-1];
-                            couleurcase=c.gettype();
-                            }
+                                
+                                c = m_plateau[x+1][y-1];
+                                couleurcase=c.gettype();
+                                x=x+1;
+                                y=y-1;
+                                
+                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
                             break;
@@ -404,17 +428,22 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 7: //Bas Droit
                         c = m_plateau[x-1][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        if(couleurcase!=couleurtour)
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y+1];
-                            couleurcase=c.gettype();
+                                
+                                c = m_plateau[x-1][y+1];
+                                couleurcase=c.gettype();
+                                x=x-1;
+                                y=y+1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -424,17 +453,21 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 8: //Bas Gauche
                         c = m_plateau[x-1][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        
+                            if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
-
-                        if(couleurcase!=couleurtour)
+                        
+                            if(couleurcase!=couleurtour)
                         {
                             do
                             {
-                            c = m_plateau[x-1][y-1];
-                            couleurcase=c.gettype();
+                                c = m_plateau[x-1][y-1];
+                                couleurcase=c.gettype();
+                                x=x-1;
+                                y=y-1;
+                                
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
