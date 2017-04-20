@@ -8,6 +8,7 @@ Joueur::Joueur()
 {
 
 }
+
 Joueur::~Joueur()
 {
 
@@ -22,9 +23,15 @@ void Joueur::setnom(std::string nom)
 {
     m_nom = nom;
 }
+
 void Joueur::setscore (int score)
 {
     m_score = score;
+}
+
+void Joueur::settour (int tour)
+{
+    m_tour = score;
 }
 
 std::string Joueur::getnom() const
@@ -40,4 +47,9 @@ int Joueur::getscore () const
 bool Joueur::getnumero () const
 {
     return m_numero;
+}
+
+bool Joueur::gettour () const
+{
+    return m_tour;
 }
