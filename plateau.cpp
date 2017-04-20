@@ -299,6 +299,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                             }while(couleurcase!=couleurtour)
 
                             m_stockage_cas.insert(std::pair(x,y));
+                            break;
                         }
 
                     case 2: //Gauche
