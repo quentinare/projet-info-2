@@ -16,6 +16,22 @@ Plateau :: ~Plateau ()
 
 }
 
+
+void initialize()
+{
+	//vider toutes les cases du tableau
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		m_plateau[i][j] = false;
+	}
+	//occuper les cases du debut de partie
+	m_plateau[3][3] = true; m_plateau[3][3].settype(true);
+	m_plateau[4][4] = true; m_plateau[4][4].settype(true);
+	m_plateau[3][4] = true;
+	m_plateau[4][3] = true;
+}
+
 void Plateau :: afficherTab(std::vector<std::vector<Case> > m_plateau)
 {
     bool typea, remplia;
@@ -122,7 +138,7 @@ void Plateau :: jeu ()
 
     monjoueur1.setnumero(false);
     monjoueur2.setnumero(true);
-    
+
 
     while (casevide()==true)
         {
@@ -285,7 +301,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 1: //Droite
                         c = m_plateau[x][y+1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -298,7 +314,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 c = m_plateau[x][y+1];
                                 couleurcase=c.gettype();
                                 y=y+1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -308,7 +324,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 2: //Gauche
                         c = m_plateau[x][y-1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -321,7 +337,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 c = m_plateau[x][y-1];
                                 couleurcase=c.gettype();
                                 y=y-1
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -331,7 +347,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 3: //Haut
                         c = m_plateau[x+1][y];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -344,7 +360,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 c = m_plateau[x+1][y];
                                 couleurcase=c.gettype();
                                 x=x+1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -354,7 +370,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 4: //Bas
                         c = m_plateau[x-1][y];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -367,7 +383,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 c = m_plateau[x-1][y];
                                 couleurcase=c.gettype();
                                 x=x-1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -377,13 +393,13 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 5: //Haut Droit
                         c = m_plateau[x+1][y+1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
 
-                        
+
                             if(couleurcase!=couleurtour)
                         {
                             do
@@ -392,7 +408,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 couleurcase=c.gettype();
                                 x=x+1;
                                 y=y+1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -402,7 +418,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 6: //Haut Gauche
                         c = m_plateau[x+1][y-1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -410,15 +426,15 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
                             if(couleurcase!=couleurtour)
                         {
-                            
+
                             do
                             {
-                                
+
                                 c = m_plateau[x+1][y-1];
                                 couleurcase=c.gettype();
                                 x=x+1;
                                 y=y-1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -428,7 +444,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 7: //Bas Droit
                         c = m_plateau[x-1][y+1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
@@ -438,12 +454,12 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                         {
                             do
                             {
-                                
+
                                 c = m_plateau[x-1][y+1];
                                 couleurcase=c.gettype();
                                 x=x-1;
                                 y=y+1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -453,12 +469,12 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 8: //Bas Gauche
                         c = m_plateau[x-1][y-1];
                         couleurcase=c.gettype();
-                        
+
                             if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
-                        
+
                             if(couleurcase!=couleurtour)
                         {
                             do
@@ -467,7 +483,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 couleurcase=c.gettype();
                                 x=x-1;
                                 y=y-1;
-                                
+
                             }while(couleurcase!=couleurtour || c.getremplie()!=true)
 
                             m_stockage_cas.insert(std::pair(x,y));
@@ -493,7 +509,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
     bool couleurcase;
     Case c;
     int x,y;
-    int compteur = 0; 
+    int compteur = 0;
 
     couleurtour = monjoueur.getnumero();
 
@@ -526,7 +542,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             y = y +1;
                             break;
@@ -555,7 +571,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             y = y-1;
                             break;
@@ -584,9 +600,9 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x+1; 
+                            x = x+1;
                             break;
                         }
 
@@ -613,7 +629,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             x = x-1;
                             break;
@@ -643,7 +659,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             x = x+1;
                             y = y+1;
@@ -674,7 +690,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             x = x+1;
                             y = y-1;
@@ -705,7 +721,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             x = x-1;
                             y = y+1;
@@ -736,7 +752,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
                                     }
                                 }
                                 compteur++;
-                                
+
                             }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
                             x = x-1;
                             y = y-1;
