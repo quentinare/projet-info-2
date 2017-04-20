@@ -304,7 +304,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 2: //Gauche
                         c = m_plateau[x][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -324,7 +324,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 3: //Haut
                         c = m_plateau[x+1][y];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -344,7 +344,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 4: //Bas
                         c = m_plateau[x-1][y];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -364,7 +364,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 5: //Haut Droit
                         c = m_plateau[x+1][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -384,7 +384,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 6: //Haut Gauche
                         c = m_plateau[x+1][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -404,7 +404,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 7: //Bas Droit
                         c = m_plateau[x-1][y+1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
@@ -424,7 +424,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                     case 8: //Bas Gauche
                         c = m_plateau[x-1][y-1];
                         couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
                         {
                             break;
                         }
