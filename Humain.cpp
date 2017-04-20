@@ -14,7 +14,7 @@ Humain :: ~Humain()
 
 }
 
-void Humain :: choix_coup(std::vector<std::vector<Case> > monplateau, std::vector<std::vector<Case> > stockagecas)
+/*void Humain :: choix_coup(std::vector<std::vector<Case> > monplateau,std::set < std::pair <int,int> > m_stockage_cas)
 {
     Plateau montableau;
     bool a = false;
@@ -37,9 +37,8 @@ void Humain :: choix_coup(std::vector<std::vector<Case> > monplateau, std::vecto
     }
     montableau.afficherTab(monplateau);
 
-}
+}*/
 
 void Humain :: affichage_coup(std::vector<std::vector<Case> > monplateau)
 {
-
 }

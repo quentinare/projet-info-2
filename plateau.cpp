@@ -16,43 +16,93 @@ Plateau :: ~Plateau ()
 
 }
 
-
-void initialize()
+void Plateau :: setTab(std::vector<std::vector<Case> > plateau)
 {
-	//vider toutes les cases du tableau
-	for (int i = 0; i < 8; i++)
-	{
-		for (int j = 0; j < 8; j++)
-		m_plateau[i][j] = false;
-	}
-	//occuper les cases du debut de partie
-	m_plateau[3][3] = true; m_plateau[3][3].settype(true);
-	m_plateau[4][4] = true; m_plateau[4][4].settype(true);
-	m_plateau[3][4] = true;
-	m_plateau[4][3] = true;
+    std::vector<std::vector<Case> > m_plateau;
+    m_plateau = plateau;
 }
+
+std::vector<std::vector<Case> > Plateau ::  getTab() const
+{
+    return m_plateau;
+}
+
+void Plateau::initialise()
+{
+    //création du plateau de jeu
+    std::vector<std::vector<Case> > m_plateau;
+    int x,y;
+    Case c;
+
+    //mettre toutes les cases du tableau vide
+    for (unsigned int i=0; i<8; i++)
+    {
+        for (unsigned int j=0; j<8; j++)
+        {
+                c.setremplie(false);//rempli
+        }
+
+    }
+
+    // boucle de parcours du tableau
+	for (int i=0; i<8; i++)
+    {
+        x=i;
+        for (int j=0; j<8; j++)
+        {
+            y=j;
+
+            c = m_plateau[x][y];
+
+            if(i==3 && j==3)
+            {
+                c.setremplie(true);//rempli
+                c.settype(true); //blanc
+            }
+            if(i==3 && j==4)
+            {
+                c.setremplie(true);//rempli
+                c.settype(false); //blanc
+            }
+            if(i==4 && j==4)
+            {
+                c.setremplie(true);//rempli
+                c.settype(true); //blanc
+            }
+            if(i==4 && j==3)
+            {
+                c.setremplie(true);//rempli
+                c.settype(false); //blanc
+            }
+
+        }//fin boucle 1D
+    }//fin boucle 2D
+}//fin de la fonction
 
 void Plateau :: afficherTab(std::vector<std::vector<Case> > m_plateau)
 {
     bool typea, remplia;
+    std::vector<std::vector<Case> > monplateau;
+    Case c;
 
     for (unsigned int i=0; i<m_plateau.size(); i++)
     {
         for (unsigned int j=0; j<m_plateau.size(); j++)
         {
+            c = m_plateau[i][j];
 
-            typea = m_plateau[i][j].gettype();
-            remplia = m_plateau [i][j].getremplie();
+            typea = c.gettype();
+            remplia = c.getremplie();
 
             if(remplia !=0)
             {
                 if(typea!=0)
                 {
-                    std::cout << "B" << std::endl;
+                    std::cout << "N" << std::endl;
                 }
                 else
                 {
-                    std::cout << "N" << std::endl;
+                    std::cout << "B" << std::endl;
                 }
             }
             else
@@ -64,16 +114,7 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > m_plateau)
     }
 }
 
-void Plateau :: setTab(std::vector<std::vector<Case> > plateau)
-{
-    std::vector<std::vector<Case> > m_plateau;
-    m_plateau = plateau;
-}
 
-std::vector<std::vector<Case> > Plateau ::  getTab() const
-{
-    return m_plateau;
-}
 
 void Plateau :: deplacement(int i=0, int j=0)
 {
@@ -129,7 +170,7 @@ void Plateau :: deplacement(int i=0, int j=0)
     Console::deleteInstance();
 }
 
-// fonction de jeu
+/* fonction de jeu traduction Valentin
 void Plateau :: jeu ()
 {
 
@@ -146,7 +187,7 @@ void Plateau :: jeu ()
             while (monjoueur1.getnumero()==false && monjoueur2.getnumero()==false)
                 {
 
-                    tour(m_plateau, monjoueur1)
+                    tour(m_plateau, monjoueur1);
 
             //parcourir le tableau pour savoir ou on peut placer un pion + le stocker dans un tableau
             //afficher le tableau + proposition de placement + "A vous de jouer J1"
@@ -191,11 +232,12 @@ void Plateau :: jeu ()
 
 
 }//fin de la fct de jeu
+*/
 
 // fonction de jeu
 void Plateau :: jeu ()
 {
-    do
+    /*do
     {
         bool vide=casevide(); //fonction tester s'il y a une case vide
         //ET que l'on peut jouer
@@ -245,9 +287,9 @@ void Plateau :: jeu ()
 
         }
         fction affichage du vainqueur
-        */
-    }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
 
+    }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
+*/
 }//fin de la fct de jeu
 
 //fonction case vide
@@ -767,6 +809,7 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 
 
         }//fin du parcours du tableau 1D
+
 
 void Plateau :: vainqueur(int score1, int score2)
 {

@@ -29,9 +29,9 @@ void Joueur::setscore (int score)
     m_score = score;
 }
 
-void Joueur::settour (int tour)
+void Joueur::settour (bool tour)
 {
-    m_tour = score;
+    m_tour = tour;
 }
 
 std::string Joueur::getnom() const

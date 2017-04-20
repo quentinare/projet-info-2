@@ -24,10 +24,10 @@ public:
     void calcul_encadrement(std::vector<std::vector<Case> > m_plateau);
     void afficherTab(std::vector<std::vector<Case> > m_plateau);
     void savegare_partie();
-    void navigation_choix();
+    //void navigation_choix();
     void deplacement(int,int);
     void jeu ();
-    void initialize();
+    void initialise();
     bool casevide ();
     std::set < std::pair <int,int> > coups_possibles (Joueur monjoueur);
     void vainqueur();
