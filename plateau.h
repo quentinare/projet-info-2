@@ -27,6 +27,7 @@ public:
     void navigation_choix();
     void deplacement(int,int);
     void jeu ();
+    void initialize();
     bool casevide ();
     std::set < std::pair <int,int> > coups_possibles (Joueur monjoueur);
     void vainqueur();
