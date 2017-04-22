@@ -135,7 +135,7 @@
 	<iostream>
 	<string>
 
-1492877617 c:\users\diane dumont\desktop\projet-info-2\plateau.h
+1492881006 c:\users\diane dumont\desktop\projet-info-2\plateau.h
 	<iostream>
 	<vector>
 	<set>
@@ -148,11 +148,12 @@
 	<vector>
 	"joueur.h"
 
-1492878187 source:c:\users\diane dumont\desktop\projet-info-2\main.cpp
+1492881043 source:c:\users\diane dumont\desktop\projet-info-2\main.cpp
 	<iostream>
 	<string>
 	<vector>
 	<stdlib.h>
+	<cstdlib>
 	"plateau.h"
 	"case.h"
 	"joueur.h"
@@ -167,10 +168,11 @@
 	"console.h"
 	"joueur.h"
 
-1492878039 source:c:\users\diane dumont\desktop\projet-info-2\plateau.cpp
+1492881006 source:c:\users\diane dumont\desktop\projet-info-2\plateau.cpp
 	<iostream>
 	<set>
 	<vector>
+	<cstdlib>
 	"plateau.h"
 	"case.h"
 	"console.h"

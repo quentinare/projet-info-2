@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <stdlib.h>
+#include <cstdlib>
 #include "plateau.h"
 #include "case.h"
 #include "joueur.h"
@@ -122,12 +123,11 @@ void monmenu()
        std::vector<std::vector <Case> > tableau;
        tableau = monPlateau.initialise();
 
-       do
        {
            std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
            std::cout << "Entrez le chiffres correspondants à votre choix:" << std::endl;
            std::cout << "1.Jouer" << std::endl;
-           std::cout << "2.Règles" << std::endl;
+           std::cout << "2.Regles" << std::endl;
            std::cout << "3.Quitter" << std::endl;
 
            std::cin >> choixMenu;
@@ -141,7 +141,6 @@ void monmenu()
                    break;
                case 2:
                    Regle();
-
                    break;
                case 3:
                    break;
