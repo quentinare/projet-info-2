@@ -10,6 +10,7 @@
 
 void menu();
 
+
 int main()
 {
     menu();
@@ -18,6 +19,40 @@ int main()
 }
 
 void menu()
+{
+    int choixMenu=0;
+    Plateau monPlateau;
+    std::vector<std::vector <Case> > tableau;
+    tableau.initialise();
+
+    do
+    {
+        std::cout << "Bienvenue dans l'OTHELLO!" << std::endl;
+        std::cout << "Veuillez choisir ce que vous souhaitez faire" << std::endl;
+        std::cout << "1. JOUER " << std::endl;
+        std::cout << "2. Lire les regles du jeux" << std::endl;
+        std::cout << "3. Quitter" << std::endl;
+        std::cin >> choixMenu;
+
+    } while (choixMenu =0);
+
+    switch (choixMenu)
+           {
+               case 1:
+                   monPlateau.afficherTab(tableau);
+                   break;
+               case 2:
+                   std::cout << "Le but du jeu est d'encadrer les pions de l'autre joueur afin de les convertir" << std::endl;
+                   std::cout << "Utiliser les touches s d f e pour deplacer le curseur" << std::endl;
+                   std::cout << "Placer un pion sur une case en appuyant sur espace" << std::endl;
+                   break;
+               case 3:
+                   break;
+           }
+}
+
+
+/*void menu()
    {
        int choixMenu;
        int n = 0;
@@ -39,7 +74,7 @@ void menu()
                std::cin >> choixMenu;
            }
 
-           /*switch (choixMenu)
+           switch (choixMenu)
            {
                case 1:
                    Mygame.afficherTab();
@@ -49,6 +84,7 @@ void menu()
                case 3:
                    break;
            }
-           */
+
         }
    }
+   */
