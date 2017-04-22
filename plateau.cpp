@@ -22,7 +22,7 @@ void Plateau :: setTab(std::vector<std::vector<Case> > plateau)
     m_plateau = plateau;
 }
 
-std::vector<std::vector<Case> > Plateau ::  getTab() const
+std::vector<std::vector<Case> > Plateau::getTab() const
 {
     return m_plateau;
 }
@@ -293,7 +293,7 @@ void Plateau :: jeu ()
 }//fin de la fct de jeu
 
 //fonction case vide
-bool Plateau :: casevide ()
+/*bool Plateau :: casevide ()
 {
     bool remplissage = false;
         Case casetest;
@@ -309,17 +309,17 @@ bool Plateau :: casevide ()
             {
                 return true;
             }
-            else (remplissage == true)
+            else (remplissage==true)
             {
                 return false;
             }
         }
     }
-}
+}*/
 
 //fonction pour trouver les cas possible
 //fonction pour trouver les cas possible
-std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
+/*std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 {
     bool couleurtour;
     bool couleurcase;
@@ -351,15 +351,14 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
                             if(couleurcase!=couleurtour)
                         {
-                            do
-                            {
+                            do{
                                 c = m_plateau[x][y+1];
                                 couleurcase=c.gettype();
                                 y=y+1;
 
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
+                            } while(couleurcase!=couleurtour || c.getremplie()!=true);
 
-                            m_stockage_cas.insert(std::pair(x,y));
+                            m_stockage_cas.insert(std::pair (x,y) );
                             break;
                         }
 
@@ -380,7 +379,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                                 couleurcase=c.gettype();
                                 y=y-1
 
-                            }while(couleurcase!=couleurtour || c.getremplie()!=true)
+                            }while(couleurcase!=couleurtour || c.getremplie()!=true);
 
                             m_stockage_cas.insert(std::pair(x,y));
                             break;
@@ -543,9 +542,9 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
     }//fin du parcours du tableau 2D
 
-}//fin de la fonction
+}//fin de la fonction*/
 
-void Plateau :: encadrement(int x, int y, Joueur monjoueur)
+/*void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 {
     bool couleurtour;
     bool couleurcase;
@@ -809,9 +808,10 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 
 
         }//fin du parcours du tableau 1D
+        */
 
 
-void Plateau :: vainqueur(int score1, int score2)
+/*void Plateau :: vainqueur(int score1, int score2)
 {
 
     if (score1 > score2)
@@ -823,6 +823,6 @@ void Plateau :: vainqueur(int score1, int score2)
       std::cout << "le joueur 2 a gagne" << std::endl;
     }
 }
-
+*/
 
 
