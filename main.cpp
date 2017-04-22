@@ -10,6 +10,7 @@
 //using namespace std;
 
 void monmenu();
+void Regle();
 
 
 int main()
@@ -17,7 +18,7 @@ int main()
     monmenu();
     return 0;
 }
-
+/*
 void monmenu()
 {
     int choixMenu = 0;
@@ -37,7 +38,7 @@ void monmenu()
         std::cin >> choixMenu;
 
     }
-    while (choixMenu == 0);
+    while (choixMenu != 1 || choixMenu != 2 || choixMenu != 3 );
 
     if (choixMenu == 1)
     {
@@ -46,11 +47,13 @@ void monmenu()
         monPlateau.afficherTab(tableau);
         monPlateau.deplacement(i, j);
        }
-       while (choixMenu == 1);
+       while (choixMenu != 1 || choixMenu != 2 || choixMenu != 3);
     }
 
     if (choixMenu == 2)
     {
+        do
+        {
         std::cout << "\t OTHELLO GAME !!" << std::endl;
 
         std::cout << "Objectif" << std::endl;
@@ -85,6 +88,8 @@ void monmenu()
         std::cout << "TAPER 1 POUR RETOURNER AU MENU" << std::endl;
 
         std::cin >> choixMenu;
+        } while (choixMenu != 1);
+
 
         if (choixMenu == 1)
         {
@@ -106,16 +111,18 @@ void monmenu()
         }
     }
 
-}
+}*/
 
 
-/*void menu()
+void monmenu()
    {
-       int choixMenu;
-       int n = 0;
-       Plateau Mygame;
+       int choixMenu = 0;
+       int i=0, j=0;
+       Plateau monPlateau;
+       std::vector<std::vector <Case> > tableau;
+       tableau = monPlateau.initialise();
 
-       while(n=0)
+       do
        {
            std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
            std::cout << "Entrez le chiffres correspondants à votre choix:" << std::endl;
@@ -125,23 +132,25 @@ void monmenu()
 
            std::cin >> choixMenu;
 
-           while (choixMenu != 1 && choixMenu != 2 && choixMenu != 3)
-           {
-               std::cout << "choix invalide, veuillez réessayer" << std::endl;
-               std::cin >> choixMenu;
-           }
-
            switch (choixMenu)
            {
                case 1:
-                   Mygame.afficherTab();
+                   //Mygame.afficherTab();
+                   monPlateau.afficherTab(tableau);
+                   monPlateau.deplacement(i, j);
                    break;
                case 2:
+                   Regle();
+
                    break;
                case 3:
                    break;
+               default:
+                   std::cout << "choix invalide, veuillez réessayer" << std::endl;
            }
 
+        }while (choixMenu != 1 || choixMenu != 3);
+
         }
-   }
-   */
+
+

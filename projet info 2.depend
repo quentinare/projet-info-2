@@ -104,22 +104,22 @@
 	<vector>
 	"joueur.h"
 
-1492679597 source:c:\users\diane dumont\desktop\projet-info-2\case.cpp
+1492875284 source:c:\users\diane dumont\desktop\projet-info-2\case.cpp
 	<iostream>
 	<vector>
 	"case.h"
 
-1492679597 c:\users\diane dumont\desktop\projet-info-2\case.h
+1492875284 c:\users\diane dumont\desktop\projet-info-2\case.h
 
-1492679597 source:c:\users\diane dumont\desktop\projet-info-2\console.cpp
+1492875284 source:c:\users\diane dumont\desktop\projet-info-2\console.cpp
 	"console.h"
 	<conio.h>
 	<windows.h>
 
-1492679597 c:\users\diane dumont\desktop\projet-info-2\console.h
+1492875284 c:\users\diane dumont\desktop\projet-info-2\console.h
 	<iostream>
 
-1492704098 source:c:\users\diane dumont\desktop\projet-info-2\humain.cpp
+1492875284 source:c:\users\diane dumont\desktop\projet-info-2\humain.cpp
 	<iostream>
 	<vector>
 	"Humain.h"
@@ -127,37 +127,47 @@
 	"plateau.h"
 	"case.h"
 
-1492679597 c:\users\diane dumont\desktop\projet-info-2\humain.h
+1492875284 c:\users\diane dumont\desktop\projet-info-2\humain.h
 	"joueur.h"
 	"case.h"
 
-1492703458 c:\users\diane dumont\desktop\projet-info-2\joueur.h
+1492875284 c:\users\diane dumont\desktop\projet-info-2\joueur.h
 	<iostream>
 	<string>
 
-1492704335 c:\users\diane dumont\desktop\projet-info-2\plateau.h
+1492877617 c:\users\diane dumont\desktop\projet-info-2\plateau.h
 	<iostream>
 	<vector>
 	<set>
 	"case.h"
 	"joueur.h"
 
-1492704199 source:c:\users\diane dumont\desktop\projet-info-2\joueur.cpp
+1492875284 source:c:\users\diane dumont\desktop\projet-info-2\joueur.cpp
 	<iostream>
 	<string>
 	<vector>
 	"joueur.h"
 
-1492679597 source:c:\users\diane dumont\desktop\projet-info-2\main.cpp
+1492878187 source:c:\users\diane dumont\desktop\projet-info-2\main.cpp
 	<iostream>
 	<string>
 	<vector>
+	<stdlib.h>
 	"plateau.h"
 	"case.h"
 	"joueur.h"
 	"console.h"
 
 1492857111 source:c:\users\asus\documents\code blocks\projet info 2\projet-info-2\plateau.cpp
+	<iostream>
+	<set>
+	<vector>
+	"plateau.h"
+	"case.h"
+	"console.h"
+	"joueur.h"
+
+1492878039 source:c:\users\diane dumont\desktop\projet-info-2\plateau.cpp
 	<iostream>
 	<set>
 	<vector>
