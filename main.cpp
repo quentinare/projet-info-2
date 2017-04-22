@@ -8,24 +8,24 @@
 
 //using namespace std;
 
-void menu();
+void monmenu();
 
 
 int main()
 {
-    menu();
-
+    monmenu();
     return 0;
 }
 
-void menu()
+void monmenu()
 {
-    int choixMenu=0;
+    int choixMenu = 0;
     Plateau monPlateau;
     std::vector<std::vector <Case> > tableau;
-    tableau.initialise();
+    tableau = monPlateau.initialise();
 
-    do
+
+    while (choixMenu != 3)
     {
         std::cout << "Bienvenue dans l'OTHELLO!" << std::endl;
         std::cout << "Veuillez choisir ce que vous souhaitez faire" << std::endl;
@@ -34,21 +34,20 @@ void menu()
         std::cout << "3. Quitter" << std::endl;
         std::cin >> choixMenu;
 
-    } while (choixMenu =0);
+        if (choixMenu == 1)
+                monPlateau.afficherTab(tableau);
 
-    switch (choixMenu)
-           {
-               case 1:
-                   monPlateau.afficherTab(tableau);
-                   break;
-               case 2:
-                   std::cout << "Le but du jeu est d'encadrer les pions de l'autre joueur afin de les convertir" << std::endl;
-                   std::cout << "Utiliser les touches s d f e pour deplacer le curseur" << std::endl;
-                   std::cout << "Placer un pion sur une case en appuyant sur espace" << std::endl;
-                   break;
-               case 3:
-                   break;
-           }
+        if (choixMenu == 2)
+        {
+            std::cout << "Le but du jeu est d'encadrer les pions de l'autre joueur afin de les convertir" << std::endl;
+            std::cout << "Utiliser les touches s d f e pour deplacer le curseur" << std::endl;
+            std::cout << "Placer un pion sur une case en appuyant sur espace" << std::endl;
+        }
+
+    }
+
+
+
 }
 
 

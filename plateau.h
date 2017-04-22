@@ -27,7 +27,7 @@ public:
     //void navigation_choix();
     void deplacement(int,int);
     void jeu ();
-    void initialise();
+    std::vector<std::vector<Case> > initialise();
     bool casevide ();
     std::set < std::pair <int,int> > coups_possibles (Joueur monjoueur);
     void vainqueur();

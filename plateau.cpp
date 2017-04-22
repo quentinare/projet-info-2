@@ -18,7 +18,6 @@ Plateau :: ~Plateau ()
 
 void Plateau :: setTab(std::vector<std::vector<Case> > plateau)
 {
-    std::vector<std::vector<Case> > m_plateau;
     m_plateau = plateau;
 }
 
@@ -27,19 +26,26 @@ std::vector<std::vector<Case> > Plateau::getTab() const
     return m_plateau;
 }
 
-void Plateau::initialise()
+std::vector<std::vector<Case> > Plateau::initialise()
 {
     //création du plateau de jeu
-    std::vector<std::vector<Case> > m_plateau;
+    std::vector<std::vector<Case> > plateau;
     int x,y;
     Case c;
+    Plateau LePlateau;
+    plateau=std::vector<std::vector<Case> >(8, std::vector<Case>(8));
+
+    std::cout<<"coucou2"<<std::endl;
 
     //mettre toutes les cases du tableau vide
     for (unsigned int i=0; i<8; i++)
     {
         for (unsigned int j=0; j<8; j++)
         {
-                c.setremplie(false);//rempli
+
+                c.setremplie(false);
+                plateau[i][j] = c;
+
         }
 
     }
@@ -52,65 +58,79 @@ void Plateau::initialise()
         {
             y=j;
 
-            c = m_plateau[x][y];
-
             if(i==3 && j==3)
             {
-                c.setremplie(true);//rempli
-                c.settype(true); //blanc
+                c.setremplie(true);
+                c.settype(true);
+                plateau[x][y]=c;//rempli
+                plateau[x][y]=c; //blanc
             }
             if(i==3 && j==4)
             {
-                c.setremplie(true);//rempli
-                c.settype(false); //blanc
+                c.setremplie(true);
+                c.settype(false);
+                plateau[x][y]=c; //rempli
+                plateau[x][y]=c; //blanc
             }
             if(i==4 && j==4)
             {
-                c.setremplie(true);//rempli
-                c.settype(true); //blanc
+                c.setremplie(true);
+                c.settype(true);
+                plateau[x][y]=c; //rempli
+                plateau[x][y]=c; //blanc
             }
             if(i==4 && j==3)
             {
-                c.setremplie(true);//rempli
-                c.settype(false); //blanc
+                c.setremplie(true);
+                c.settype(false);
+                plateau[x][y]=c; //rempli
+                plateau[x][y]=c; //blanc
             }
 
         }//fin boucle 1D
     }//fin boucle 2D
+    LePlateau.setTab(plateau);
+    return plateau;
 }//fin de la fonction
 
-void Plateau :: afficherTab(std::vector<std::vector<Case> > m_plateau)
+void Plateau :: afficherTab(std::vector<std::vector<Case> > plateau)
 {
     bool typea, remplia;
-    std::vector<std::vector<Case> > monplateau;
     Case c;
 
-    for (unsigned int i=0; i<m_plateau.size(); i++)
+    //std::cout<<"coucou2"<<std::endl;
+
+    for (unsigned int i=0; i<plateau.size(); i++)
     {
-        for (unsigned int j=0; j<m_plateau.size(); j++)
+        for (unsigned int j=0; j<plateau.size(); j++)
         {
-            c = m_plateau[i][j];
+
+            //std::cout<<"coucou3"<<std::endl;
+            c = plateau[i][j];
+            //std::cout<<"coucou4"<<std::endl;
 
             typea = c.gettype();
+
             remplia = c.getremplie();
 
-            if(remplia !=0)
+            if(remplia == true)
             {
-                if(typea!=0)
+                if(typea == false)
                 {
-                    std::cout << "N" << std::endl;
+                    std::cout << "N ";
                 }
                 else
                 {
-                    std::cout << "B" << std::endl;
+                    std::cout << "B ";
                 }
             }
             else
             {
-                std::cout << "*" << std::endl;
+                std::cout << "* ";
             }
 
         }
+        std::cout<<std::endl;
     }
 }
 

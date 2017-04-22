@@ -5,8 +5,7 @@
 
 Case::Case()
 {
-    m_type = -1;
-    m_remplie = -1;
+
 }
 
 Case::~Case()
