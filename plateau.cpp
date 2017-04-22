@@ -35,22 +35,9 @@ std::vector<std::vector<Case> > Plateau::initialise()
     Plateau LePlateau;
     plateau=std::vector<std::vector<Case> >(8, std::vector<Case>(8));
 
-    std::cout<<"coucou2"<<std::endl;
+    std::cout<<"coucou2"<<std::endl;// wtf
 
-    //mettre toutes les cases du tableau vide
-    for (unsigned int i=0; i<8; i++)
-    {
-        for (unsigned int j=0; j<8; j++)
-        {
-
-                c.setremplie(false);
-                plateau[i][j] = c;
-
-        }
-
-    }
-
-    // boucle de parcours du tableau
+    // boucle d'initialisation
 	for (int i=0; i<8; i++)
     {
         x=i;
@@ -85,6 +72,10 @@ std::vector<std::vector<Case> > Plateau::initialise()
                 c.settype(false);
                 plateau[x][y]=c; //rempli
                 plateau[x][y]=c; //blanc
+            }
+            else
+            {
+                c.setremplie(false);
             }
 
         }//fin boucle 1D
@@ -133,8 +124,6 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > plateau)
         std::cout<<std::endl;
     }
 }
-
-
 
 void Plateau :: deplacement(int i=0, int j=0)
 {
@@ -190,10 +179,55 @@ void Plateau :: deplacement(int i=0, int j=0)
     Console::deleteInstance();
 }
 
-/* fonction de jeu traduction Valentin
+void Regle ()
+{
+    int i;
+
+        do
+        {
+        std::cout << "\t OTHELLO GAME !!" << std::endl;
+
+        std::cout << "Objectif" << std::endl;
+        std::cout << std::endl;
+        std::cout << "Le but du jeu est d'encadrer les pions de l'autre " << std::endl;
+        std::cout << "joueur afin de les convertir" << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Regles du jeu" << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "1) Utiliser les touches s d f e pour deplacer le curseur" << std::endl;
+        std::cout << std::endl;
+        std::cout << "2) Placer un pion sur une case en appuyant sur espace" << std::endl;
+        std::cout << std::endl;
+        std::cout << "3) Vous ne pouvez placer un pion que a proximite" << std::endl;
+        std::cout << std::endl;
+        std::cout << "   d'un pion de votre adversaire" << std::endl;
+        std::cout << std::endl;
+        std::cout << "4) Votre score est le comptage du nombre de vos pions" << std::endl;
+        std::cout << std::endl;
+        std::cout << "   sur le plateau" << std::endl;
+        std::cout << std::endl;
+        std::cout << "5) La partie se termine lorsqu'un joueur ne peut plus placer" << std::endl;
+        std::cout << "   de pion" << std::endl;
+        std::cout << std::endl;
+        std::cout << "6) Le joueur ayant le plus grand score remporte la partie" << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "TAPER 1 POUR RETOURNER AU MENU" << std::endl;
+
+        std::cin >> i;
+
+        }while (i!=1);
+
+    }
+
+//fonction de jeu traduction Valentin
 void Plateau :: jeu ()
 {
-
+/*
     Joueur monjoueur1;
     Joueur monjoueur2;
 
@@ -250,14 +284,14 @@ void Plateau :: jeu ()
 
     }
 
-
-}//fin de la fct de jeu
 */
+}//fin de la fct de jeu
+
 
 // fonction de jeu
-void Plateau :: jeu ()
+/*void Plateau :: jeu ()
 {
-    /*do
+    do
     {
         bool vide=casevide(); //fonction tester s'il y a une case vide
         //ET que l'on peut jouer
@@ -309,8 +343,10 @@ void Plateau :: jeu ()
         fction affichage du vainqueur
 
     }while (vide==0) //while (la touche de fin n'est pas appuyée OU qu'il n'y a pas de victoire OU que l'on ne peut pas jouer) // fin du do
-*/
+
 }//fin de la fct de jeu
+*/
+
 
 //fonction case vide
 /*bool Plateau :: casevide ()
