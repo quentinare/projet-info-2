@@ -148,6 +148,7 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > plateau)
 
 void Plateau :: deplacement(int i, int j)
 {
+    char p;
     bool quit = false;
     Console* pConsole = NULL;
 
@@ -169,10 +170,6 @@ void Plateau :: deplacement(int i, int j)
             int key = pConsole->getInputKey();
             //std::cout << "touche = " << key << std::endl;
 
-            if (key == 27) // 27 = touche escape
-            {
-                quit = true;
-            }
 
             if (key == 'd')//curseur ves le haut
             {
@@ -213,9 +210,12 @@ void Plateau :: deplacement(int i, int j)
                     pConsole->gotoLigCol(i,j);
                 }
             }
-        }
 
-        quit = true;
+            if (key == ' ') // je veux placer un pion
+            {
+                quit = true;
+            }
+        }
     }
 
     // Libčre la mémoire du pointeur !
@@ -507,12 +507,12 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
     }//fin du parcours du tableau 2D
 
-    Console* pConsole = NULL;
+    Console* pConsole2 = NULL;
 
     // Alloue la mémoire du pointeur
-    pConsole = Console::getInstance();
+    pConsole2 = Console::getInstance();
 
-    int key = pConsole->getInputKey();
+    int key = pConsole2->getInputKey();
 
     //std::cout << "pointeur ok" <<std::endl;
 
@@ -524,12 +524,13 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
         if (m_stockage_cas.find(selection) != m_stockage_cas.end())
         {
-            std::cout << "You can play here" << std::endl;
+            std::cout<<"H "<<std::endl;
+            //std::cout << "You can play here" << std::endl;
         }
 
         else
         {
-            std::cout << "Move forbiden" << std::endl;
+            //std::cout << "" << std::endl;
         }
     }
 }//fin de la fonction
