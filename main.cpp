@@ -123,7 +123,7 @@ void monmenu()
        std::vector<std::vector <Case> > tableau;
        tableau = monPlateau.initialise();
        Joueur un;
-       std::set(std::pair <int,int>) coups = monPlateau.coups_possibles (Joueur un);
+       int gameover = 0;
 
        {
            std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
@@ -137,11 +137,13 @@ void monmenu()
            switch (choixMenu)
            {
                case 1:
-                   //Mygame.afficherTab();
+                   do{
+                   system("cls");
                    monPlateau.afficherTab(tableau);
                    monPlateau.deplacement(i, j);
 
-                   monPlateau.blindageposH(i,j,coups);
+                   monPlateau.coups_possibles(un);
+                   }while (gameover == 0);
                    break;
                case 2:
                    Regle();
