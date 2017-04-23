@@ -126,7 +126,7 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > plateau)
     }
 }
 
-void Plateau :: deplacement(int i=0, int j=0)
+void Plateau :: deplacement(int i, int j)
 {
     bool quit = false;
     Console* pConsole = NULL;
@@ -147,31 +147,35 @@ void Plateau :: deplacement(int i=0, int j=0)
         {
             // Récupere le code ASCII de la touche
             int key = pConsole->getInputKey();
-            std::cout << "touche = " << key << std::endl;
+            //std::cout << "touche = " << key << std::endl;
 
             if (key == 27) // 27 = touche escape
             {
                 quit = true;
             }
 
-            if (key == 'e')//curseur ves le haut
+            if (key == 'd')//curseur ves le haut
             {
-                pConsole->gotoLigCol(i+1,j);
+                i=i+1;
+                pConsole->gotoLigCol(i,j);
             }
 
-            if (key == 'd')//curseur vers le bas
+            if (key == 'e')//curseur vers le bas
             {
-                pConsole->gotoLigCol(i-1,j);
+                i=i-1;
+                pConsole->gotoLigCol(i,j);
             }
 
-            if (key == 'f')//curseur vers la droite
+            if (key == 'f')//curseur vers la droite (touche f)
             {
-                pConsole->gotoLigCol(i,j+1);
+                j=j+2;
+                pConsole->gotoLigCol(i,j);
             }
 
             if (key == 's')//curseur vers la gauche
             {
-                pConsole->gotoLigCol(i,j-1);
+                j=j-2;
+                pConsole->gotoLigCol(i,j);
             }
         }
     }
@@ -183,6 +187,7 @@ void Plateau :: deplacement(int i=0, int j=0)
 void Regle ()
 {
     int i;
+
 
         std::cout << "\t OTHELLO GAME !!" << std::endl;
 
@@ -219,11 +224,12 @@ void Regle ()
 
         std::cin >> i;
 
+
+
         while (i!=1)
         {
             std::cout <<"veuillez recommencer"<<std::endl;
             std::cin >> i;
-
         }
 
     }
