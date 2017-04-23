@@ -743,8 +743,8 @@ void blindageposH (int x, int y,std::set(std::pair <int,int>) coups_possible)
 {
     std::pair<int,int> p1 (x,y);
     std::set<std::pair<int,int>) compare = coups_possible;
-    auto it = s.find(p1);
-	
+    auto it = compare.find(p1);
+
     std::cout << it->first << "," << it->second <<std::endl;
 }
 
@@ -899,7 +899,7 @@ void Plateau :: jeu ()
 
 
         }//fin du parcours du tableau 1D
- 
+
 
 
 /*void Plateau :: vainqueur(int score1, int score2)
