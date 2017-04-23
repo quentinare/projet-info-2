@@ -129,16 +129,16 @@ void Plateau :: afficherTab(std::vector<std::vector<Case> > plateau)
             {
                 if(typea == false)
                 {
-                    std::cout << "N ";
+                    std::cout << "N";
                 }
                 else
                 {
-                    std::cout << "B ";
+                    std::cout << "B";
                 }
             }
             else
             {
-                std::cout << "* ";
+                std::cout << "*";
             }
 
         }
@@ -193,20 +193,20 @@ void Plateau :: deplacement(int i, int j)
 
             if (key == 'f')//curseur vers la droite (touche f)
             {
-                if(j>=0 && j<14)
+                if(j>=0 && j<7)
                 {
-                    j=j+2;
-                    setcol(j+2);
+                    j=j+1;
+                    setcol(j+1);
                     pConsole->gotoLigCol(i,j);
                 }
             }
 
             if (key == 's')//curseur vers la gauche
             {
-                if(j>0 && j<=14)
+                if(j>0 && j<=7)
                 {
-                    j=j-2;
-                    setcol(j-2);
+                    j=j-1;
+                    setcol(j-1);
                     pConsole->gotoLigCol(i,j);
                 }
             }
