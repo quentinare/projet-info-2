@@ -138,34 +138,13 @@ void monmenu()
         {
         case 1:
             system("cls");
-            /*do
+            monPlateau.afficherTab(tableau);
+            do
             {
-                monPlateau.afficherTab(tableau);
                 monPlateau.deplacement(i, j);
                 monPlateau.coups_possibles(un);
             }
-            while (gameover == 0);*/
-                
-            //Mygame.afficherTab();
-            std::string nomJ1, nomJ2 ;
-            std::cout <<"veuillez entrer le nom du Joueur J1"<<std::endl;
-            std::cin >> nomJ1;
-            std::cout <<"veuillez entrer le nom du Joueur J2"<<std::endl;
-            std::cin >> nomJ2;
-
-            int scoreJ1=0, scoreJ2=0;
-            bool numeroJ1=0,numeroJ2=1, tourJ1=0, tourJ2=1;
-
-            bool numjoueur;
-            Joueur J1 (nomJ1, scoreJ1, numeroJ1, tourJ1);
-            Joueur J2 (nomJ2, scoreJ2, numeroJ2, tourJ2);
-
-           do{
-            monPlateau.afficherTab(tableau);//afficher le plateau du jeu
-            monPlateau.deplacement(i, j);// permet de le déplacement
-            coups = monPlateau.coups_possibles (/* */);
-            monPlateau.blindageposH(i,j,coups);
-             }while (numjoueur!=1);
+            while (gameover == 0);
             break;
         case 2:
             Regle();
