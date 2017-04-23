@@ -35,6 +35,7 @@ public:
     void tour(std::vector<std::vector<Case> >, Joueur);
     void changement_couleur();
     void Regle ();
+    void blindageposH (int x, int y, std::set(std::pair <int,int>) coups_possible);
 
 };
 
