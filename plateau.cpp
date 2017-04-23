@@ -470,6 +470,270 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
 }//fin de la fonction
 
+void Plateau :: encadrement(int x, int y, Joueur monjoueur)
+{
+    bool couleurtour;
+    bool couleurcase;
+    Case c;
+    int x,y;
+    int compteur = 0;
+
+    couleurtour = monjoueur.getnumero();
+
+            if(couleurtour==couleurcase)
+            {
+                for(int a=0; a<8; a++)
+                {
+                    switch (a)
+                    {
+                    case 1: //Droite
+                        c = m_plateau[x][y+1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x][y+1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x][y-1];
+                                        c.settype(couleurtour);
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            y = y +1;
+                            break;
+                        }
+
+                    case 2: //Gauche
+                        c = m_plateau[x][y-1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x][y+1];
+                                        c.settype(couleurtour);
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            y = y-1;
+                            break;
+                        }
+
+                    case 3: //Haut
+                        c = m_plateau[x+1][y];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x+1][y];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x+1;
+                            break;
+                        }
+
+                    case 4: //Bas
+                        c = m_plateau[x-1][y];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x-1][y];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x-1;
+                            break;
+                        }
+
+                    case 5: //Haut Droit
+                        c = m_plateau[x+1][y+1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x+1][y+1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y-1];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x+1;
+                            y = y+1;
+                            break;
+                        }
+
+                    case 6: //Haut Gauche
+                        c = m_plateau[x+1][y-1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x+1][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x-1][y+1];
+                                        c.settype(couleurtour);
+                                        x = x-1;
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x+1;
+                            y = y-1;
+                            break;
+                        }
+
+                    case 7: //Bas Droit
+                        c = m_plateau[x-1][y+1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x-1][y+1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y-1];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                        y = y-1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x-1;
+                            y = y+1;
+                            break;
+                        }
+
+                    case 8: //Bas Gauche
+                        c = m_plateau[x-1][y-1];
+                        couleurcase=c.gettype();
+                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
+                        {
+                            break;
+                        }
+
+                        if(couleurcase!=couleurtour)
+                        {
+                            do
+                            {
+                                c = m_plateau[x-1][y-1];
+                                if (couleurcase==couleurtour)
+                                {
+                                    for(unsigned int i = 0; i<compteur; i++)
+                                    {
+                                        c = m_plateau[x+1][y+1];
+                                        c.settype(couleurtour);
+                                        x = x+1;
+                                        y = y+1;
+                                    }
+                                }
+                                compteur++;
+
+                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true);
+                            x = x-1;
+                            y = y-1;
+                            break;
+                        }
+
+
+                    } //fin du switch
+
+                }//fin de la boucle for
+            }
+}//fin de la fct de jeu
+
+
 //fonction de jeu traduction Valentin
 void Plateau :: jeu ()
 {
@@ -531,7 +795,6 @@ void Plateau :: jeu ()
     }
 
 */
-}//fin de la fct de jeu
 
 
 // fonction de jeu
@@ -619,271 +882,10 @@ void Plateau :: jeu ()
     }
 }*/
 
-/*void Plateau :: encadrement(int x, int y, Joueur monjoueur)
-{
-    bool couleurtour;
-    bool couleurcase;
-    Case c;
-    int x,y;
-    int compteur = 0;
-
-    couleurtour = monjoueur.getnumero();
-
-            if(couleurtour==couleurcase)
-            {
-                for(int a=0; a<8; a++)
-                {
-                    switch (a)
-                    {
-                    case 1: //Droite
-                        c = m_plateau[x][y+1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y || c.getremplie()!=true) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x][y+1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x][y-1];
-                                        c.settype(couleurtour);
-                                        y = y-1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            y = y +1;
-                            break;
-                        }
-
-                    case 2: //Gauche
-                        c = m_plateau[x][y-1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x][y-1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x][y+1];
-                                        c.settype(couleurtour);
-                                        y = y+1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            y = y-1;
-                            break;
-                        }
-
-                    case 3: //Haut
-                        c = m_plateau[x+1][y];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x+1][y];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x-1][y];
-                                        c.settype(couleurtour);
-                                        x = x-1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x+1;
-                            break;
-                        }
-
-                    case 4: //Bas
-                        c = m_plateau[x-1][y];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x-1][y];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x+1][y];
-                                        c.settype(couleurtour);
-                                        x = x+1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x-1;
-                            break;
-                        }
-
-                    case 5: //Haut Droit
-                        c = m_plateau[x+1][y+1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x+1][y+1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x-1][y-1];
-                                        c.settype(couleurtour);
-                                        x = x-1;
-                                        y = y-1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x+1;
-                            y = y+1;
-                            break;
-                        }
-
-                    case 6: //Haut Gauche
-                        c = m_plateau[x+1][y-1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x+1][y-1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x-1][y+1];
-                                        c.settype(couleurtour);
-                                        x = x-1;
-                                        y = y+1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x+1;
-                            y = y-1;
-                            break;
-                        }
-
-                    case 7: //Bas Droit
-                        c = m_plateau[x-1][y+1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x-1][y+1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x+1][y-1];
-                                        c.settype(couleurtour);
-                                        x = x+1;
-                                        y = y-1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x-1;
-                            y = y+1;
-                            break;
-                        }
-
-                    case 8: //Bas Gauche
-                        c = m_plateau[x-1][y-1];
-                        couleurcase=c.gettype();
-                        if(couleurcase==couleurtour || 0<x || x>8 || 0<y || x>y) // couleur pion = couleur du jeur OU sortie du tableau
-                        {
-                            break;
-                        }
-
-                        if(couleurcase!=couleurtour)
-                        {
-                            do
-                            {
-                                c = m_plateau[x-1][y-1];
-                                if (couleurcase==couleurtour)
-                                {
-                                    for(unsigned int i = 0; i<compteur; i++)
-                                    {
-                                        c = m_plateau[x+1][y+1];
-                                        c.settype(couleurtour);
-                                        x = x+1;
-                                        y = y+1;
-                                    }
-                                }
-                                compteur++;
-
-                            }while(0<x || x>8 || 0<y || x>y || c.getremplie()!=true)
-                            x = x-1;
-                            y = y-1;
-                            break;
-                        }
-
-
-                    } //fin du switch
-
-                }//fin de la boucle for
-            }
 
 
         }//fin du parcours du tableau 1D
-        */
+ 
 
 
 /*void Plateau :: vainqueur(int score1, int score2)
