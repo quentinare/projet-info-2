@@ -733,6 +733,20 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
             }
 }//fin de la fct de jeu
 
+// Example program
+#include <iostream>
+#include <string>
+#include <utility>
+#include <set>
+
+void blindageposH (int x, int y,std::set(std::pair <int,int>) coups_possible)
+{
+    std::pair<int,int> p1 (x,y);
+    std::set<std::pair<int,int>) compare = coups_possible;
+    auto it = s.find(p1);
+	
+    std::cout << it->first << "," << it->second <<std::endl;
+}
 
 //fonction de jeu traduction Valentin
 void Plateau :: jeu ()
