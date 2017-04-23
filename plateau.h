@@ -9,6 +9,8 @@
 class Plateau
 {
 private:
+    int m_line;
+    int m_col;
     std::vector<std::vector<Case> > m_plateau;
     std::set < std::pair <int,int> > m_stockage_cas;
 
@@ -35,7 +37,12 @@ public:
     void tour(std::vector<std::vector<Case> >, Joueur);
     void changement_couleur();
     void Regle ();
-    void blindageposH (int x, int y, std::set(std::pair <int,int>) coups_possible);
+
+    int getline() const;
+    int getcol() const;
+
+    void setline(int i);
+    void setcol(int j);
 
 };
 
