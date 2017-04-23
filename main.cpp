@@ -122,6 +122,8 @@ void monmenu()
        Plateau monPlateau;
        std::vector<std::vector <Case> > tableau;
        tableau = monPlateau.initialise();
+       Joueur un;
+       std::set(std::pair <int,int>) coups = monPlateau.coups_possibles (Joueur un);
 
        {
            std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
@@ -138,6 +140,8 @@ void monmenu()
                    //Mygame.afficherTab();
                    monPlateau.afficherTab(tableau);
                    monPlateau.deplacement(i, j);
+
+                   monPlateau.blindageposH(i,j,coups);
                    break;
                case 2:
                    Regle();
