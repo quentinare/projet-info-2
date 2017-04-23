@@ -36,8 +36,6 @@ std::vector<std::vector<Case> > Plateau::initialise()
     Plateau LePlateau;
     plateau=std::vector<std::vector<Case> >(8, std::vector<Case>(8));
 
-    std::cout<<"coucou2"<<std::endl;// wtf
-
     // boucle d'initialisation
 	for (int i=0; i<8; i++)
     {
@@ -156,26 +154,38 @@ void Plateau :: deplacement(int i, int j)
 
             if (key == 'd')//curseur ves le haut
             {
+                if (i>=0 && i<7)//blindage lignes
+                {
                 i=i+1;
                 pConsole->gotoLigCol(i,j);
+                }
             }
 
             if (key == 'e')//curseur vers le bas
             {
+                if(i>0 && i<=7)
+                {
                 i=i-1;
                 pConsole->gotoLigCol(i,j);
+                }
             }
 
             if (key == 'f')//curseur vers la droite (touche f)
             {
+                if(j>=0 && j<14)
+                {
                 j=j+2;
                 pConsole->gotoLigCol(i,j);
+                }
             }
 
             if (key == 's')//curseur vers la gauche
             {
+                if(j>0 && j<=14)
+                {
                 j=j-2;
                 pConsole->gotoLigCol(i,j);
+                }
             }
         }
     }
