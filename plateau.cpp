@@ -6,6 +6,8 @@
 #include "case.h"
 #include "console.h"
 #include "joueur.h"
+#include <string>
+#include <utility>
 
 Plateau :: Plateau ()
 {
@@ -26,6 +28,26 @@ std::vector<std::vector<Case> > Plateau::getTab() const
 {
     return m_plateau;
 }
+
+    int Plateau::getline() const
+    {
+        return m_line;
+    }
+
+    int Plateau::getcol() const
+    {
+        return m_col;
+    }
+
+    void Plateau::setline(int i)
+    {
+        m_line=i;
+    }
+
+    void Plateau::setcol(int j)
+    {
+        m_col=j;
+    }
 
 std::vector<std::vector<Case> > Plateau::initialise()
 {
@@ -157,6 +179,7 @@ void Plateau :: deplacement(int i, int j)
                 if (i>=0 && i<7)//blindage lignes
                 {
                 i=i+1;
+                setline(i+1);
                 pConsole->gotoLigCol(i,j);
                 }
             }
@@ -166,6 +189,7 @@ void Plateau :: deplacement(int i, int j)
                 if(i>0 && i<=7)
                 {
                 i=i-1;
+                setline(i-1);
                 pConsole->gotoLigCol(i,j);
                 }
             }
@@ -175,6 +199,7 @@ void Plateau :: deplacement(int i, int j)
                 if(j>=0 && j<14)
                 {
                 j=j+2;
+                setcol(j+2);
                 pConsole->gotoLigCol(i,j);
                 }
             }
@@ -184,6 +209,7 @@ void Plateau :: deplacement(int i, int j)
                 if(j>0 && j<=14)
                 {
                 j=j-2;
+                setcol(j-2);
                 pConsole->gotoLigCol(i,j);
                 }
             }
@@ -247,10 +273,12 @@ void Regle ()
     //fonction pour trouver les cas possible
 std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 {
-    bool couleurtour;
+    bool couleurtour=true;
     bool couleurcase;
     Case c;
     int x,y;
+
+    std::cout << "Appel de coups possibles ok"<<std::endl;//meme pas affiche
 
     couleurtour = monjoueur.getnumero();
 
@@ -456,7 +484,7 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
                             m_stockage_cas.insert(std::pair <int,int>(x,y));
                             break;
                         }
-
+                        std::cout << "dans le switch ok"<<std::endl;
 
                     } //fin du switch
 
@@ -468,9 +496,34 @@ std::set < std::pair <int,int> > Plateau :: coups_possibles (Joueur monjoueur)
 
     }//fin du parcours du tableau 2D
 
+        Console* pConsole = NULL;
+
+    // Alloue la mémoire du pointeur
+    pConsole = Console::getInstance();
+
+    int key = pConsole->getInputKey();
+
+    std::cout << "pointeur ok" <<std::endl;
+
+    if (key == ' ')
+    {
+        int x=getline();
+        int y=getcol();
+        std::pair <int,int> selection(x,y);
+
+        if (m_stockage_cas.find(selection) != m_stockage_cas.end())
+        {
+            std::cout << "You can play here" << std::endl;
+        }
+
+        else
+        {
+            std::cout << "Move forbiden" << std::endl;
+        }
+    }
 }//fin de la fonction
 
-void Plateau :: encadrement(int x, int y, Joueur monjoueur)
+/*void Plateau :: encadrement(int x, int y, Joueur monjoueur)
 {
     bool couleurtour;
     bool couleurcase;
@@ -733,24 +786,13 @@ void Plateau :: encadrement(int x, int y, Joueur monjoueur)
             }
 }//fin de la fct de jeu
 
-// Example program
-#include <iostream>
-#include <string>
-#include <utility>
-#include <set>
 
-void blindageposH (int x, int y,std::set(std::pair <int,int>) coups_possible)
-{
-    std::pair<int,int> p1 (x,y);
-    std::set<std::pair<int,int>) compare = coups_possible;
-    auto it = compare.find(p1);
+*/
 
-    std::cout << it->first << "," << it->second <<std::endl;
-}
 
 //fonction de jeu traduction Valentin
-void Plateau :: jeu ()
-{
+//void Plateau :: jeu ()
+//{
 /*
     Joueur monjoueur1;
     Joueur monjoueur2;
@@ -898,7 +940,7 @@ void Plateau :: jeu ()
 
 
 
-        }//fin du parcours du tableau 1D
+//        }//fin du parcours du tableau 1D
 
 
 
