@@ -116,46 +116,48 @@ void monmenu()
 
 
 void monmenu()
-   {
-       int choixMenu = 0;
-       int i=0, j=0;
-       Plateau monPlateau;
-       std::vector<std::vector <Case> > tableau;
-       tableau = monPlateau.initialise();
-       Joueur un;
-       int gameover = 0;
+{
+    int choixMenu = 0;
+    int i=0, j=0;
+    Plateau monPlateau;
+    std::vector<std::vector <Case> > tableau;
+    tableau = monPlateau.initialise();
+    Joueur un;
+    int gameover = 0;
 
-       {
-           std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
-           std::cout << "Entrez le chiffres correspondants à votre choix:" << std::endl;
-           std::cout << "1.Jouer" << std::endl;
-           std::cout << "2.Regles" << std::endl;
-           std::cout << "3.Quitter" << std::endl;
+    {
+        std::cout << "Bienvenue dans le jeu d'Othello!" << std::endl;
+        std::cout << "Entrez le chiffres correspondants à votre choix:" << std::endl;
+        std::cout << "1.Jouer" << std::endl;
+        std::cout << "2.Regles" << std::endl;
+        std::cout << "3.Quitter" << std::endl;
 
-           std::cin >> choixMenu;
+        std::cin >> choixMenu;
 
-           switch (choixMenu)
-           {
-               case 1:
-                   do{
-                   system("cls");
-                   monPlateau.afficherTab(tableau);
-                   monPlateau.deplacement(i, j);
-
-                   monPlateau.coups_possibles(un);
-                   }while (gameover == 0);
-                   break;
-               case 2:
-                   Regle();
-                   break;
-               case 3:
-                   break;
-               default:
-                   std::cout << "choix invalide, veuillez réessayer" << std::endl;
-           }
-
-        }while (choixMenu != 1 || choixMenu != 3);
-
+        switch (choixMenu)
+        {
+        case 1:
+            system("cls");
+            do
+            {
+                monPlateau.afficherTab(tableau);
+                monPlateau.deplacement(i, j);
+                monPlateau.coups_possibles(un);
+            }
+            while (gameover == 0);
+            break;
+        case 2:
+            Regle();
+            break;
+        case 3:
+            break;
+        default:
+            std::cout << "choix invalide, veuillez réessayer" << std::endl;
         }
+
+    }
+    while (choixMenu != 1 || choixMenu != 3);
+
+}
 
 
